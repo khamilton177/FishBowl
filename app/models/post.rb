@@ -1,4 +1,6 @@
 class Post < ApplicationRecord
-  has_many :users
-  has_many :comments
+  belongs_to :user
+  has_many :comments, dependent: :destroy
+
+  accepts_nested_attributes_for :comments, allow_destroy: true
 end

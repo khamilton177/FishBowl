@@ -1,0 +1,8 @@
+<h1>Update User-  <%= @user.username.capitalize %></h1>
+<%= render "user_form" %>
+<!-- <p>Find me in app/views/users/update.html.erb</p> -->
+
+<%= link_to("Back", user_path(@user)) %>
+
+<h3>Delete my account</h3>
+<p>Unhappy? <%= link_to ("Delete my account", user_path(@user), data: { confirm: "Are you sure?" }, method: :delete) %></p>

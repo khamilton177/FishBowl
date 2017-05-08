@@ -6,4 +6,9 @@ class HomeControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+  test "should get sign-in" do
+    get home_sign_in_url
+    assert_response :success
+  end
+
 end

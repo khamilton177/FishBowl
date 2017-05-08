@@ -1,0 +1,8 @@
+<!-- <p>Find me in app/views/profiles/_new.html.erb</p> -->
+<%= form_for @profile do |prof_form| %>
+  <%= prof_form.text_field :fname, placeholder: "First Name", class: "prof_f" %>
+  <%= prof_form.text_field :lname, placeholder: "Last Name", class: "prof_f" %>
+  <%= prof_form.date_field :dob, placeholder: "DOB: MM/DD/YYYY", class: "prof_f" %>
+  <%= prof_form.file_field :avatar, placeholder: "Your Pic", class: "prof_f" %>
+  <%= prof_form.text_area :about, placeholder: "About me", class: "prof_f" %>
+<% end %>

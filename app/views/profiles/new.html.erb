@@ -1,0 +1,13 @@
+<h1>Create Profile</h1>
+<p>Find me in app/views/profiles/new.html.erb</p>
+
+<%= form_for @profile, url: {action: "create"}, html: {multipart: true} do |form| %>
+  <%= form.text_field :fname, placeholder: "First Name", class: "prof_f" %>
+  <%= form.text_field :lname, placeholder: "Last Name", class: "prof_f" %>
+  <%= form.date_field :dob, placeholder: "DOB: MM/DD/YYYY", class: "prof_f" %>
+  <%= form.file_field :avatar, placeholder: "Your Pic", class: "prof_f" %>
+  <%= form.text_area :about, placeholder: "About me", class: "prof_f" %>
+  <%= form.submit %>
+<% end %>
+
+<%= link_to("Back", profiles_path) %>

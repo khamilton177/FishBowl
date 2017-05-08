@@ -3,12 +3,51 @@
   <head>
     <title>MyRailsApp</title>
     <%= csrf_meta_tags %>
-
+    <%= stylesheet_link_tag "https://fonts.googleapis.com/css?family=Indie+Flower|Lobster|Lobster+Two" %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
-    <%= yield %>
+    <div id="lay_container">
+      <header class="lay_header">
+        <nav id="lay_nav">
+          <a id="lay_page_title" href="/">Fishbowl</a>
+          <% if @current_user.nil? %>
+            <%= link_to("Sign Up", new_user_path, id: "lay_up", class: "layBtn") %>
+            <!-- <a id="lay_up" class="layBtn" href="/users/new">Sign Up</a> -->
+            <a id="lay_in" class="layBtn" href="/sign-in">Sign In</a>
+          <% else %>
+            <% @profile=Profile.where(user_id: @current_user).first %>
+            <a id="lay_out" class="layBtn" href="/sign-out">Sign Out</a>
+
+            <div class="lay_drop_cnt">
+              <a id="lay_acct" class="layBtn" href="#">Account</a>
+              <div class="lay_drop_dwn">
+                <a class="lay_drop_lnks" href="/post_create/<%= @current_user %>">New Post</a>
+                <a class="lay_drop_lnks" href="/show-mypost/<%= @current_user %>">My Post</a>
+                <a class="lay_drop_lnks" href="/profile_view/<%= @profile.user_id %>">Profile</a>
+                <a class="lay_drop_lnks" href="/sign-out">Sign Out</a>
+              </div>
+            <div>
+            <!-- <a id="lay_prof" class="layBtn" href="/profile_view">Profile</a> -->
+          <% end %>
+        </nav>
+      </header>
+      <div class="lay_background">
+        <% if flash[:notice] %>
+          <div id="notice">
+            <%= flash[:notice]%>
+          </div>
+        <% end %>
+
+        <% if flash[:alert] %>
+          <div id="alert">
+            <%= flash[:alert]%>
+          </div>
+        <% end %>
+        <%= yield %>
+      </div>
+      <footer></footer>
+    </div>
   </body>
 </html>

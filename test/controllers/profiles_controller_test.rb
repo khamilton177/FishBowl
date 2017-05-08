@@ -1,8 +1,8 @@
 require 'test_helper'
 
-class PostControllerTest < ActionDispatch::IntegrationTest
+class ProfilesControllerTest < ActionDispatch::IntegrationTest
   test "should get index" do
-    get post_index_url
+    get profile_index_url
     assert_response :success
   end
 
