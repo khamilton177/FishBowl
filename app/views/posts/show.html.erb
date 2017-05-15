@@ -1,0 +1,17 @@
+<% if @current_user %>
+<input class="home" type="hidden" name="current_user" value="<%= @current_user.id %>">
+<% end %>
+<div>
+<p class="home_post_t"><span class="home_post_span">Title: </span><%= @post.title %></p>
+<p class="home_post"><%= @post.content %></p>
+<p class="home_post_dt"><span class="home_post_span">Date: </span><%= time_tag @post.created_at %></p>
+<%= link_to("View", post_path(@post)) %>
+<%= link_to("Edit", edit_post_path(@post)) %>
+<%= link_to("Delete", post_path(@post), method: :delete, data: { confirm: 'Are you sure you want to delete this post?' }) %>
+<h2>Comments:</h2>
+<%= render @post.comments %>
+<h2>Add a comment:</h2>
+<%= render "comments/comment_form" %>
+<%= link_to("Edit", edit_post_path(@post)) %>
+<%= link_to("Back", :back) %>
+</div>

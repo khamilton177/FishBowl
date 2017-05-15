@@ -1,10 +1,18 @@
 class ProfilesController < ApplicationController
+  before_action :current_user
+
+  def current_user
+    if session[:user_id]
+      @current_user = User.find(session[:user_id])
+    end
+  end
+
   def index
     @profiles = Profile.all
   end
 
   def show
-    @profile = Profile.find(params[:id])
+    @profile = Profile.where(params[:user_id]).first
   end
 
   def new
@@ -17,13 +25,14 @@ class ProfilesController < ApplicationController
 
   def create
     @profile=Profile.create(profile_params)
+    @profile.user_id=@current_user.id
     if @profile.save
       flash[:notice] = "Saved"
       redirect_to user_path(@profile.user_id)
     else
-      flash[:alert] = "Profile Creation Failed"
+      flash[:alert] = "Sign Up failed"
       # redirect_to edit_profile_path(@profile)
-      redirect_to root_path
+      redirect_to :back
     end
   end
 
@@ -48,16 +57,8 @@ class ProfilesController < ApplicationController
     redirect_to profiles_path
   end
 
-  def current_user
-    if session[:user_id]
-      @current_user = User.find(session[:user_id])
-    else
-      @current_user=User.find(1)
-    end
-  end
-
   private
   def profile_params
-    params.require(:profile).permit(:fname, :lname, :dob, :avatar, :about, :user_id)
+    params.require(:profile).permit(:id, :user_id, :email, :fname, :lname, :dob, :avatar, :about)
   end
 end

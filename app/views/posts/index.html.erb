@@ -1,2 +1,11 @@
-<h1>Post#index</h1>
-<p>Find me in app/views/posts/index.html.erb</p>
+<input class="home" type="hidden" name="current_user" value="<%= @current_user.id %>">
+
+<h1>My Post</h1>
+  <% @posts.each do |post| %>
+      <p class="home_post_t"><span class="home_post_span">Title: </span><%= post.title %></p>
+      <p class="home_post"><%= post.content %></p>
+      <p class="home_post_dt"><span class="home_post_span">Date: </span><%= time_tag post.created_at %></p>
+      <%= link_to("View", post_path(post)) %>
+      <%= link_to("Edit", edit_post_path(post)) %>
+      <%= link_to("Delete", post_path(post), method: :delete, data: { confirm: 'Are you sure you want to delete this post?' }) %>
+  <% end %>

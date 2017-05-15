@@ -1,23 +1,26 @@
-<h1><%= @user.username.capitalize %>'s Profile'</h1>
+<h1><%= @user.username.capitalize %>'s Profile</h1>
 <!-- <p>Find me in app/views/users/show.html.erb</p> -->
 
-<%= form_for @user, url: {action: "update"}, html: {method: :get, multipart: true} do |form| %>
+<%= form_for @user, url: {action: "show"}, html: {method: :get, multipart: true} do |form| %>
   <%= form.text_field :username, placeholder: "Username", class: "sign_up", readonly: "true"%>
   <%= form.password_field :password, placeholder: "******", class: "sign_up", readonly: "true"%>
-  <%= form.email_field :email, placeholder: "you@somewhere.com", class: "sign_up", readonly: "true"%>
-  <%= form.fields_for :profile do |profile_form| %>
-      <%= profile_form.text_field :fname, placeholder: "First Name", class: "prof_f", readonly: "true"%>
-      <%= profile_form.text_field :lname, placeholder: "Last Name", class: "prof_f", readonly: "true"%>
-      <%= profile_form.date_field :dob, placeholder: "DOB: MM/DD/YYYY", class: "prof_f", readonly: "true"%>
-      <%= image_tag @user.profile.avatar.url(:medium) %>
-      <%= profile_form.text_area :about, placeholder: "About me", class: "prof_f", readonly: "true"%>
+  <%= form.fields_for :profile, html: {multipart: true}  do |prof_f| %>
+      <%= prof_f.email_field :email, placeholder: "you@somewhere.com", class: "sign_up", readonly: "true"%>
+      <%= prof_f.text_field :fname, placeholder: "First Name", class: "prof_f", readonly: "true"%>
+      <%= prof_f.text_field :lname, placeholder: "Last Name", class: "prof_f", readonly: "true"%>
+      <%= prof_f.date_field :dob, placeholder: "DOB: MM/DD/YYYY", class: "prof_f", readonly: "true"%>
+      <p class="prof_f">Avatar: <%= @user.profile.avatar(:thumb) %></p>
+      <%= prof_f.text_area :about, placeholder: "About me", class: "prof_f", readonly: "true"%>
   <% end %>
+  <ul>
+  <li>
+    <% if @current_user %>
+      <% if @current_user.id == @user.id %>
+        <%= link_to("Edit", edit_user_path(@user), method: :get) %>
+        <%= link_to("Delete", user_path(@user), method: :delete) %>
+      <% end %>
+    <% end %>
+  </li>
+  </ul>
 <% end %>
-
-<ul>
-<li>
-  <%= link_to("Edit", edit_user_path(@user), method: :edit) %>
-  <%= link_to("Delete", user_path(@user), method: :delete) %>
-  <%= link_to("Back", "/") %>
-</li>
-</ul>
+<%= link_to("Back", :back) %>

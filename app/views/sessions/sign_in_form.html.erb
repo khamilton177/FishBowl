@@ -1,0 +1,9 @@
+<!-- Home#sign_in -->
+
+<div>
+<%= form_tag "/sign_in", method: :post do %>
+  <input type="text" name="username" placeholder="Username" class="sign" data-required="required" value="">
+  <input type="password" name="password" placeholder="Password" class="sign" data-required="required" value="">
+  <%= submit_tag "Go", id: "sign_in_btn" %>
+<% end %>
+</div>

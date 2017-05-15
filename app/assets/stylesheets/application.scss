@@ -50,12 +50,12 @@ header{
 .lay_header::before{
   content: " ";
   position: absolute;
-  top:auto; 0px;
+  top: 0px;
   width: 100vw;
   height: 100vh;
-  background-image: url("fishbowl.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
+  // background-image: url("fishbowl.jpg");
+  // background-repeat: no-repeat;
+  // background-size: cover;
 }
 
 #lay_container{
@@ -150,6 +150,20 @@ header{
 
 .lay_drop_cnt:hover #lay_acct{
  background-color: #4C6663;
+}
+
+#notice {
+  background-color: yellow;
+  color: white;
+  padding: 10px;
+  border-radius: 2px;
+}
+
+#alert {
+  background-color: red;
+  color: white;
+  padding: 10px;
+  border-radius: 2px;
 }
 
 footer{

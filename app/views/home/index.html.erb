@@ -3,9 +3,9 @@
   <!-- Display each user along with their latest post -->
   <% @users.each do |user| %>
     <% @post=@posts.where(user_id: user.id).last %>
-    <%= link_to("#{user.username.capitalize}", users_path(user.id), class: "home_post_u") %>
+    <%= link_to("#{user.username}".capitalize, user_path(user.id), method: :get, class: "home_post_u") %>
     <% if @post %>
-      <p class="home_post_t"><span class="home_post_span">Title: </span><%= @post.title %></p>
+<%= link_to("TITLE: #{@post.title}", post_path(@post.id), method: :get, class: "home_post_t") %>
       <p class="home_post"><%= @post.content %></p>
       <p class="home_post_dt"><span class="home_post_span">Date: </span><%= time_tag @post.created_at %></p>
       </article>

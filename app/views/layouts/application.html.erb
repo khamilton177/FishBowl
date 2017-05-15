@@ -15,21 +15,20 @@
           <% if @current_user.nil? %>
             <%= link_to("Sign Up", new_user_path, id: "lay_up", class: "layBtn") %>
             <!-- <a id="lay_up" class="layBtn" href="/users/new">Sign Up</a> -->
-            <a id="lay_in" class="layBtn" href="/sign-in">Sign In</a>
+            <%= link_to("Sign In", sign_in_path, method: :get, class: "layBtn") %>
+            <!-- <a id="lay_in" class="layBtn" href="/sessions/sign_in">Sign In</a> -->
           <% else %>
             <% @profile=Profile.where(user_id: @current_user).first %>
-            <a id="lay_out" class="layBtn" href="/sign-out">Sign Out</a>
-
             <div class="lay_drop_cnt">
               <a id="lay_acct" class="layBtn" href="#">Account</a>
               <div class="lay_drop_dwn">
                 <a class="lay_drop_lnks" href="/post_create/<%= @current_user %>">New Post</a>
                 <a class="lay_drop_lnks" href="/show-mypost/<%= @current_user %>">My Post</a>
-                <a class="lay_drop_lnks" href="/profile_view/<%= @profile.user_id %>">Profile</a>
-                <a class="lay_drop_lnks" href="/sign-out">Sign Out</a>
+                <%= link_to("Profile", user_path(@current_user), method: :get, id: "lay_up", class: "lay_drop_lnks") %>
+                <!-- <a class="lay_drop_lnks" href="/sessions/sign_out">Sign Out</a> -->
+                <%= link_to("Sign Out", sign_out_path, method: :delete, class: "layBtn") %>
               </div>
             <div>
-            <!-- <a id="lay_prof" class="layBtn" href="/profile_view">Profile</a> -->
           <% end %>
         </nav>
       </header>

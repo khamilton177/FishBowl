@@ -1,0 +1,6 @@
+<div>
+<p class="home_post_t"><span class="home_post_span">User: </span><%= comment.user_id %></p>
+<p class="home_post"><%= comment.content %></p>
+<p class="home_post_dt"><span class="home_post_span">Date: </span><%= time_tag comment.created_at %></p>
+</div>
+      <%= link_to("Delete", [comment.post, comment], method: :delete, data: { confirm: 'Are you sure?' }) %>

@@ -1,5 +1,14 @@
-<h1>Create Account</h1>
-<%= render "user_form" %>
-<!-- <p>Find me in app/views/users/new.html.erb</p> -->
-
-<%= link_to("Back", "/") %>
+<%= form_for @user, url: {action: "create"}, html: { multipart: true } do |form| %>
+  <%= form.text_field :username, placeholder: "Username", class: "sign_up" %>
+  <%= form.password_field :password, placeholder: "******", class: "sign_up" %>
+  <%= form.fields_for :profiles, html: {multipart: true} do |prof_f| %>
+      <%= prof_f.email_field :email, placeholder: "you@somewhere.com", class: "sign_up" %>
+      <%= prof_f.text_field :fname, placeholder: "First Name", class: "prof_f" %>
+      <%= prof_f.text_field :lname, placeholder: "Last Name", class: "prof_f" %>
+      <%= prof_f.date_field :dob, placeholder: "DOB: MM/DD/YYYY", class: "prof_f" %>
+      <%= prof_f.file_field :avatar, class: "prof_f" %>
+      <%= prof_f.text_area :about, placeholder: "About me", class: "prof_f" %>
+  <% end %>
+  <%= form.submit %>
+<% end %>
+<%= link_to("Back", :back) %>

@@ -10,14 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170505152245) do
+ActiveRecord::Schema.define(version: 20170514162524) do
 
   create_table "comments", force: :cascade do |t|
     t.text     "content"
-    t.integer  "post_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "user_id"
+    t.integer  "post_id"
+    t.index ["post_id"], name: "index_comments_on_post_id"
   end
 
   create_table "posts", force: :cascade do |t|
@@ -33,13 +34,15 @@ ActiveRecord::Schema.define(version: 20170505152245) do
     t.string   "lname"
     t.datetime "dob"
     t.text     "about",               limit: 350
-    t.integer  "user_id"
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.string   "email"
+    t.integer  "user_id"
+    t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -47,7 +50,6 @@ ActiveRecord::Schema.define(version: 20170505152245) do
     t.string   "password",   limit: 16
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false
-    t.string   "email"
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
