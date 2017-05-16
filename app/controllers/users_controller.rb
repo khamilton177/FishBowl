@@ -27,9 +27,6 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     # redirect_to profiles_path
-    @profile = User.profile.build(profile_params)
-    # @comment.user_id=@current_user.id
-    @user.profile = @user.id
 
     if @user.save
       session[:user_id]=@user.id
@@ -66,6 +63,6 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:username, :password, :email, profile_attributes: [:id, :user_id, :fname, :lname, :dob, :avatar, :about, :_destroy])
+    params.require(:user).permit(:username, :password, profile_attributes: [:id, :user_id, :email, :fname, :lname, :dob, :avatar, :about ])
   end
 end

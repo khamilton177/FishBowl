@@ -1,14 +1,14 @@
-<%= form_for @user, url: {action: "create"}, html: { multipart: true } do |form| %>
+<%= form_for @user, url: {action: "create"}, html: {multipart: true} do |form| %>
   <%= form.text_field :username, placeholder: "Username", class: "sign_up" %>
-  <%= form.password_field :password, placeholder: "******", class: "sign_up" %>
-  <%= form.fields_for :profiles, html: {multipart: true} do |prof_f| %>
-      <%= prof_f.email_field :email, placeholder: "you@somewhere.com", class: "sign_up" %>
-      <%= prof_f.text_field :fname, placeholder: "First Name", class: "prof_f" %>
-      <%= prof_f.text_field :lname, placeholder: "Last Name", class: "prof_f" %>
-      <%= prof_f.date_field :dob, placeholder: "DOB: MM/DD/YYYY", class: "prof_f" %>
-      <%= prof_f.file_field :avatar, class: "prof_f" %>
-      <%= prof_f.text_area :about, placeholder: "About me", class: "prof_f" %>
-  <% end %>
-  <%= form.submit %>
+  <%= form.password_field :password, placeholder: "Password", class: "sign_up" %>
+  <%= form.fields_for :profile, html: {multipart: true}  do |prof_f| %>
+    <%= prof_f.email_field :email, placeholder: "you@somewhere.com", class: "sign_up" %>
+    <%= prof_f.text_field :fname, placeholder: "First Name", class: "form" %>
+    <%= prof_f.text_field :lname, placeholder: "Last Name", class: "form" %>
+    <%= prof_f.date_field :dob, placeholder: "DOB: MM/DD/YYYY", class: "form" %>
+    <%= prof_f.file_field :avatar, placeholder: "Your Pic", class: "form" %>
+    <%= prof_f.text_area :about, placeholder: "About me", class: "form" %>
+    <% end %>
+  <%= form.submit "Save", id: "sign_up_btn" %>
 <% end %>
 <%= link_to("Back", :back) %>
