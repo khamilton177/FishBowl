@@ -6,9 +6,9 @@ Rails.application.routes.draw do
   post "/sign_in" => "sessions#sign_in"
   delete "/sign_out" => "sessions#sign_out", as: "sign_out"
 
-  resources :users do
-    resource :profile
-  end
+  resources :users
+  resource :profile
+  
   # # get 'profiles/index'
   # #
   # # get 'profile', to: :index, :show, controller: 'profiles'

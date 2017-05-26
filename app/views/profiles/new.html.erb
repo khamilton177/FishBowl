@@ -1,7 +1,15 @@
-<h1>Create Profile</h1>
-<p>Find me in app/views/profiles/new.html.erb</p>
-
 <%= form_for @profile, url: {action: "create"}, html: {multipart: true} do |form| %>
+  <% if @profile.errors.full_messages.any? %>
+  <ul>
+    <% @profile.errors.full_messages.each do |error_message| %>
+    <li>
+      <%= error_message %>
+    </li>
+    <br>
+    <% end %>
+  </ul>
+  <% end %>
+  <%= form.email_field :email, placeholder: "you@somewhere.com", class: "prof_f" %>
   <%= form.text_field :fname, placeholder: "First Name", class: "prof_f" %>
   <%= form.text_field :lname, placeholder: "Last Name", class: "prof_f" %>
   <%= form.date_field :dob, placeholder: "DOB: MM/DD/YYYY", class: "prof_f" %>
@@ -10,4 +18,4 @@
   <%= form.submit %>
 <% end %>
 
-<%= link_to("Back", profiles_path) %>
+<%= link_to("Back", profile_path) %>

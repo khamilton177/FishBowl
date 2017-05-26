@@ -25,13 +25,13 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(user_params)
-    # redirect_to profiles_path
+    puts params.inspect
+    @user = User.create(user_params)
 
     if @user.save
       session[:user_id]=@user.id
       flash[:notice] = "User created"
-      redirect_to root_path
+      redirect_to new_profile_path
     else
       flash[:alert] = "Sign-Up failed"
       render :new
@@ -40,7 +40,6 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    # @user.build_profile
      if @user.update(user_params)
        flash[:notice] = "Update successful"
        redirect_to user_path(@user)
@@ -62,7 +61,8 @@ class UsersController < ApplicationController
   end
 
   private
+
   def user_params
-    params.require(:user).permit(:username, :password, profile_attributes: [:id, :user_id, :email, :fname, :lname, :dob, :avatar, :about ])
+    params.require(:user).permit(:username, :password)
   end
 end

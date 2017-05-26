@@ -24,15 +24,16 @@ class ProfilesController < ApplicationController
   end
 
   def create
-    @profile=Profile.create(profile_params)
+    puts params.inspect
+    puts "Current USer- #{@current_user.id}"
+    @profile=Profile.new(profile_params)
     @profile.user_id=@current_user.id
     if @profile.save
       flash[:notice] = "Saved"
       redirect_to user_path(@profile.user_id)
     else
-      flash[:alert] = "Sign Up failed"
-      # redirect_to edit_profile_path(@profile)
-      redirect_to :back
+      flash[:alert] = "save failed"
+      render :new
     end
   end
 
@@ -59,6 +60,6 @@ class ProfilesController < ApplicationController
 
   private
   def profile_params
-    params.require(:profile).permit(:user_id, :email, :fname, :lname, :dob, :avatar, :about)
+    params.require(:profile).permit(:email, :fname, :lname, :dob, :avatar, :about, :user_id)
   end
 end
