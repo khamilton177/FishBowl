@@ -1,7 +1,8 @@
+<div class="all_divs">
   <%= form_for @user, url: {action: "create"}, html: {multipart: true} do |form| %>
-    <% if @profile.errors.full_messages.any? %>
+    <% if @user.errors.full_messages.any? %>
     <ul>
-      <% @profile.errors.full_messages.each do |error_message| %>
+      <% @user.errors.full_messages.each do |error_message| %>
       <li>
         <%= error_message %>
       </li>
@@ -9,8 +10,15 @@
       <% end %>
     </ul>
     <% end %>
-    <%= form.text_field :username, placeholder: "Username", class: "sign_up" %>
-    <%= form.password_field :password, placeholder: "Password", class: "sign_up" %>
-    <%= form.submit "Save" %>
-  </p>
+    <p>
+      Username:  <%= form.text_field :username, placeholder: "Username", class: "sign_up" %>
+    </p>
+    <BR>
+    <p>
+      Password  <%= form.password_field :password, placeholder: "Password", class: "sign_up" %>
+    </p>
+      <%= form.submit "Save", class: "save_f" %>
   <% end %>
+  <BR>
+  <%= link_to("Back", :back, class: "btm_links") %>
+</div>

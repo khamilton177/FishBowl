@@ -1,18 +1,2 @@
-<%= form_for @profile, url: {action: "new"}, html: {multipart: true} do |form| %>
-  <% if @profile.errors.full_messages.any? %>
-  <ul>
-    <% @profile.errors.full_messages.each do |error_message| %>
-    <li>
-      <%= error_message %>
-    </li>
-    <br>
-    <% end %>
-  </ul>
-  <% end %>
-  <%= form.email_field :email, placeholder: "you@somewhere.com", class: "sign_up" %>
-  <%= form.text_field :fname, placeholder: "First Name", class: "form" %>
-  <%= form.text_field :lname, placeholder: "Last Name", class: "form" %>
-  <%= form.date_field :dob, placeholder: "DOB: MM/DD/YYYY", class: "form" %>
-  <%= form.file_field :avatar, placeholder: "Your Pic", class: "form" %>
-  <%= form.text_area :about, placeholder: "About me", class: "form" %>
-<% end %>
+<%= form.text_field :username, placeholder: "Username", class: "sign_up" %>
+<%= form.password_field :password, placeholder: "Password", class: "sign_up" %>

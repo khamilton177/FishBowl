@@ -1,17 +1,22 @@
-<%= form_for @profile, url: {action: "show"} do |form| %>
-  <%= form.email_field :email, placeholder: "you@somewhere.com", class: "prof_f", readonly: :true %>
-  <%= form.text_field :fname, placeholder: "First Name", class: "prof_f", readonly: :true %>
-  <%= form.text_field :lname, placeholder: "Last Name", class: "prof_f", readonly: :true %>
-  <%= form.date_field :dob, placeholder: "DOB: MM/DD/YYYY", class: "prof_f", readonly: :true %>
-  Avatar: <%= @profile.avatar(:thumb) %>
-  <%= form.text_area :about, placeholder: "About me", class: "prof_f", readonly: :true %>
-<% end %>
-<ul>
-<li>
-  <% if @current_user %>
-    <% if @current_user.id == @profile.user_id %>
-      <%= link_to("Edit", edit_profile_path(@profile), method: :get) %>
-    <% end %>
+<h1>Profile Show</h1>
+
+<div class="all_divs">
+  <p>Username: <%=@user.username %></p>
+  <BR>
+  <p>Password: **********</p>
+  <BR>
+    <p>Email:  <%=@profile.email %></p>
+  <BR>
+  <span>First Name:  <%=@profile.fname %></span>
+  <span>Lasst Name:  <%=@profile.lname %></span>
+  <BR>
+  <p><%= @profile.avatar(:thumb) %></p>
+  <BR>
+  <p>A litte about me:</p>
+  <p> <%= @profile.about %></p>
+  <BR>
+  <% if @current_user && @current_user.id == @profile.user_id %>
+    <%= link_to("Edit", edit_profile_path, class: "btm_links") %>
   <% end %>
-</li>
-</ul>
+  <%= link_to("Back", :back, class: "btm_links") %>
+</div>

@@ -12,15 +12,12 @@ class ProfilesController < ApplicationController
   end
 
   def show
-    @profile = Profile.where(params[:user_id]).first
+    @profile = Profile.where(user_id: params[:user_id]).first
+    @user=User.find(@profile.user_id)
   end
 
   def new
     @profile = Profile.new
-  end
-
-  def edit
-    @profile = Profile.find(params[:user_id])
   end
 
   def create
@@ -37,15 +34,20 @@ class ProfilesController < ApplicationController
     end
   end
 
+  def edit
+    @profile = Profile.where(params[:user_id]).first
+  end
+
   def update
-    @profile = Profile.find(params[:id])
-     if @profile.update(profile_params)
-       flash[:notice] = "Update successful"
-       redirect_to profile_path(@profile)
-     else
-       flash[:alert] = "Update failed"
-       redirect_to edit_profile_path(@profile)
-     end
+    @profile = Profile.where(params[:user_id]).first
+    @profile.update(profile_params)
+    if @profile.save
+      flash[:notice] = "Update successful"
+      redirect_to user_path(@profile.user_id)
+    else
+      flash[:alert] = "Update failed"
+      redirect_to edit_profile_path(@profile)
+    end
   end
 
   def destroy

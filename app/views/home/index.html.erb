@@ -1,14 +1,21 @@
-<!-- <p>Find me in app/views/home/index.html.erb</p> -->
-<section id="home_posts_scroll">
+<div class="all_divs">
   <!-- Display each user along with their latest post -->
   <% @users.each do |user| %>
-    <% @post=@posts.where(user_id: user.id).last %>
-    <%= link_to("#{user.username}".capitalize, user_path(user.id), method: :get, class: "home_post_u") %>
+    <p>
+      <% @post=@posts.where(user_id: user.id).last %>
+      <%= link_to("#{user.username}".capitalize, user_path(user.id), method: :get, class: "post_u") %>
+  </p>
     <% if @post %>
-<%= link_to("TITLE: #{@post.title}", post_path(@post.id), method: :get, class: "home_post_t") %>
-      <p class="home_post"><%= @post.content %></p>
-      <p class="home_post_dt"><span class="home_post_span">Date: </span><%= time_tag @post.created_at %></p>
-      </article>
+      <p>
+        <%= link_to("TITLE: #{@post.title}", post_path(@post.id), method: :get, class: "post_t") %>
+      </p>
+      <p class="post">
+        <%= @post.content %>
+      </p>
+      <p>
+        <span class="post_span post_dt">Date: </span>
+        <%= time_tag @post.created_at %>
+      </p>
     <% end %>
   <% end %>
-</section>
+</div>

@@ -8,16 +8,18 @@ Rails.application.routes.draw do
 
   resources :users
   resource :profile
-  
+
+  resources :posts do
+    resources :comments
+  end
+
+ get "/posts/:user_id/posts" => "posts#my_post", as: "my_post"
+
   # # get 'profiles/index'
   # #
   # # get 'profile', to: :index, :show, controller: 'profiles'
   # get 'profile', to: :new, :update, controller: 'users'
   # post 'profile', to: :create, controller: 'users'
-
-  resources :posts do
-    resources :comments, only: [:index, :show]
-  end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

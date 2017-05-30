@@ -13,6 +13,11 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @profile = Profile.where(user_id: params[:id]).first
+  end
+
+  def my_post
+    @posts=Post.where(params[:user_id])
   end
 
   def new
@@ -52,8 +57,9 @@ class UsersController < ApplicationController
   def destroy
     @user = User.find(params[:id])
     if @user.destroy
+      session[:user_id] = nil
       flash[:notice] = "Deleted successfully"
-      redirect_to users_path
+      redirect_to root_path
     else
       flash[:alert] = "Delete failed"
       render :back

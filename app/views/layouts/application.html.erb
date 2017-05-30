@@ -3,50 +3,52 @@
   <head>
     <title>MyRailsApp</title>
     <%= csrf_meta_tags %>
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css"> -->
     <%= stylesheet_link_tag "https://fonts.googleapis.com/css?family=Indie+Flower|Lobster|Lobster+Two" %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
-    <div id="lay_container">
-      <header class="lay_header">
-        <nav id="lay_nav">
-          <a id="lay_page_title" href="/">Fishbowl</a>
-          <% if @current_user.nil? %>
-            <%= link_to("Sign Up", new_user_path, id: "lay_up", class: "layBtn") %>
-            <!-- <a id="lay_up" class="layBtn" href="/users/new">Sign Up</a> -->
-            <%= link_to("Sign In", sign_in_path, method: :get, class: "layBtn") %>
-            <!-- <a id="lay_in" class="layBtn" href="/sessions/sign_in">Sign In</a> -->
-          <% else %>
-            <% @profile=Profile.where(user_id: @current_user).first %>
-            <div class="lay_drop_cnt">
-              <a id="lay_acct" class="layBtn" href="#">Account</a>
-              <div class="lay_drop_dwn">
-                <a class="lay_drop_lnks" href="/post_create/<%= @current_user %>">New Post</a>
-                <a class="lay_drop_lnks" href="/show-mypost/<%= @current_user %>">My Post</a>
-                <%= link_to("Profile", user_path(@current_user), method: :get, id: "lay_up", class: "lay_drop_lnks") %>
-                <!-- <a class="lay_drop_lnks" href="/sessions/sign_out">Sign Out</a> -->
-                <%= link_to("Sign Out", sign_out_path, method: :delete, class: "layBtn") %>
-              </div>
-            <div>
-          <% end %>
-        </nav>
-      </header>
-      <div class="lay_background">
-        <% if flash[:notice] %>
-          <div id="notice">
-            <%= flash[:notice]%>
-          </div>
-        <% end %>
 
-        <% if flash[:alert] %>
-          <div id="alert">
-            <%= flash[:alert]%>
+    <nav id="lay_nav" class="lay">
+      <%= link_to("fishbowl", root_path, class: "lay_page_title") %>
+      <% if @current_user.nil? %>
+        <%= link_to("Sign Up", new_user_path, id: "lay_up", class: "layBtn") %>
+        <%= link_to("Sign In", sign_in_path, method: :get, class: "layBtn") %>
+      <% else %>
+        <% @profile=Profile.where(user_id: @current_user).first %>
+        <div class="lay_drop_cnt">
+          <a id="lay_acct" class="layBtn" href="#">Account</a>
+          <div class="lay_drop_dwn">
+            <%= link_to("New Post", new_post_path, method: :get, class: "lay_drop_lnks") %>
+            <%= link_to("My Post", my_post_path(@current_user.id), method: :get, class: "lay_drop_lnks") %>
+            <%= link_to("Profile", user_path(@current_user), method: :get, class: "lay_drop_lnks") %>
+            <%= link_to("Change Password",edit_user_path(@current_user), method: :get, class: "lay_drop_lnks") %>
+            <%= link_to("Delete Account", user_path(@current_user), method: :delete, confirm: "Are you sure you want to delete account?", class: "lay_drop_lnks") %>
+            <%= link_to("Sign Out", sign_out_path, method: :delete, class: "layBtn") %>
           </div>
-        <% end %>
-        <%= yield %>
+        <div>
+      <% end %>
+    </nav>
+    <!-- <div class="img_div"> -->
+      <%= image_tag("fishbowl.jpg", class: "img_div") %>
+    <!-- </div> -->
+    <!-- <% if flash[:notice] %>
+      <div id="notice">
+        <%= flash[:notice]%>
       </div>
-      <footer></footer>
-    </div>
+    <% end %> -->
+
+    <% if flash[:alert] %>
+      <div id="alert">
+        <%= flash[:alert]%>
+      </div>
+    <% end %>
+
+    <%= yield %>
+
+    <footer>
+    </footer>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script> -->
   </body>
 </html>

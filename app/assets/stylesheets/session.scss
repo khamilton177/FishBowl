@@ -1,67 +1,28 @@
-// Place all the styles related to the sessions controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+// // Place all the styles related to the sessions controller here.
+// // They will automatically be included in application.css.
+// // You can use Sass (SCSS) here: http://sass-lang.com/
+//
+// // Place all the styles related to the user controller here.
+// // They will automatically be included in application.css.
+// // You can use Sass (SCSS) here: http://sass-lang.com/
 
-// Place all the styles related to the user controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
-/* Colors-
-  Neon Orange- #FBA04B
-  Dogwood Rose- #D90368
-  Pearly Purple- #AF5E9B
-  Raisin Black- #291720
-  Sacramento St. Green- #035C41 or #03583F
-  Light Apricot- #FDD3AD
-  font-family: 'Lobster', cursive
-  font-family: 'Indie Flower', cursive
-  font-family: 'Lobster Two', cursive;
-  */
-
-
-.new_user{
-  position: relative;
-  width: 100%;
-  margin: 0 auto;
-  padding: 0px 95px 20px 95px;
-  display: block;
-  align-items: center;
-  color: #291720;
-}
-
-.sign{
-  // position: relative;
-  // top: 120px;
-  width: 75%;
-  height: 40px;
-  margin: 0 auto;
-  margin-bottom: 20px;
-  padding: 1%;
-  display: block;
-  align-items: center;
+.save_f{
   text-align: center;
-  border: 1px solid white;
-  border-radius: 10px;
-  background-color: white;
-  color: #291720;
-}
-
-.sign_up::selection{
-  display: block;
-  align-items: center;
-  text-align: center;
-  background-color: white;
-  color: #291720;
-}
-
-#sign_up_btn, #sign_in_btn{
-  position: relative;
-  width: 150px;
-  height: 65px;
+  color: #FBA04B;
+  background-color: transparent;
   margin-left: 40%;
-  background-color: #FBA04B;
-  color: #291720;
-  font-family: Arial;
-  border: 1px solid #FBA04B;
-  border-radius: 10px;
+}
+
+#notice {
+  background-color: yellow;
+  color: white;
+  padding: 10px;
+  border-radius: 2px;
+}
+
+#alert {
+  background-color: red;
+  color: white;
+  padding: 10px;
+  border-radius: 2px;
 }

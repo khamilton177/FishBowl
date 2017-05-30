@@ -1,19 +1,33 @@
-<%= form_for @profile, url: {action: "update"}, html: {multipart: true} do |form| %>
-  <% if @profile.errors.full_messages.any? %>
-  <ul>
-    <% @profile.errors.full_messages.each do |error_message| %>
-    <li>
-      <%= error_message %>
-    </li>
-    <br>
+<div class="all_divs">
+  <%= form_for @profile, html: {multipart: true} do |form| %>
+    <% if @profile.errors.full_messages.any? %>
+    <ul>
+      <% @profile.errors.full_messages.each do |error_message| %>
+      <li>
+        <%= error_message %>
+      </li>
+      <br>
+      <% end %>
+    </ul>
     <% end %>
-  </ul>
-  <% end %>
-  <%= form.email_field :email, placeholder: "you@somewhere.com", class: "sign_up" %>
-  <%= form.text_field :fname, placeholder: "First Name", class: "form" %>
-  <%= form.text_field :lname, placeholder: "Last Name", class: "form" %>
-  <%= form.date_field :dob, placeholder: "DOB: MM/DD/YYYY", class: "form" %>
-  <%= form.file_field :avatar, placeholder: "Your Pic", class: "form" %>
-  <%= form.text_area :about, placeholder: "About me", class: "form" %>
-  <%= form.submit "Save" %>
-<% end %>
+    <p>
+      Email:  <%= form.email_field :email, placeholder: "you@somewhere.com", class: "sign_up" %>
+    </p>
+    <p>
+      First Name:  <%= form.text_field :fname, placeholder: "First Name", class: "form" %>
+      Last Name:  <%= form.text_field :lname, placeholder: "Last Name", class: "form" %>
+    </p>
+    <p>
+      DOB:  <%= form.date_field :dob, placeholder: "DOB: MM/DD/YYYY", class: "form" %>
+    </p>
+    <p>
+      <%= form.file_field :avatar, placeholder: "Your Pic", class: "form" %>
+    </p>
+    <p>A little about me:</p>
+    <p>
+      <%= form.text_area :about, placeholder: "About me", class: "form f_text_area" %>
+    </p>
+    <%= form.submit "Save", class: "save_f" %>
+    <% end %>
+    <%= link_to("Back", :back, class: "btm_links") %>
+</div>

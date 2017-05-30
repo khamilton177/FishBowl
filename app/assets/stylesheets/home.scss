@@ -13,79 +13,40 @@
   font-family: 'Lobster Two', cursive
   */
 
-/*  Home Page Styling*/
-#home_posts_scroll{
-  display: inline-block;
-  position: relative;
-  top: 0px;
-  width: 100%;
-  height: 90%;
-  color: #FBA04B;
-  // left: 570px;
-  // padding: 20px 25px 20px 25px;
-  // align-items: center;
-  // background-color: #e6ecf0;
-}
-
-.home_display_post{
-  animation: flipInY 5s;
-}
-
-.home_post_art{
-  margin: 20px;
-  font-family: 'Indie Flower', cursive;
-  // font-family: 'Abel', sans-serif;
-  font-size: 20px;
-  color: #FBA04B;
-}
-
-.home_post_u{
-  display: block;
-  border: 1px solid #4C6663;
-  margin: 0;
-  padding: 10px;
+  .post_u{
+    display: block;
     font-size: 24px;
     font-weight: bolder;
     text-decoration: none;
+    color: #4C6663;
+  }
+
+  .post_t{
+    margin: 0;
+    padding: 10px 10px 10px 0px;
+    font-family: 'Oswald', sans-serif;
     color: #FBA04B;
-}
+  }
 
-.home_post_tp{
-  display: none;
-  position: absolute;
-  background-color: #EFE9F4;
-  border: 1px solid #4C6663;
-  z-index: 1;
-}
+  .post{
+    margin: 20px;
+    font-family: 'Indie Flower', cursive;
+    font-size: 20px;
+    color: #FBA04B;
+    border: 1px solid #4C6663;
+    margin: 0;
+    padding: 10px;
+  }
 
-.home_post_u:hover span.home_post_tp{
-  display: block;
-}
-
-.home_post_t{
+  .post_dt{
   margin: 0;
-  padding: 10px;
-  color: #FDD3AD;
-}
-
-.home_post{
-  margin: 0;
-  padding: 10px 10px 10px 35px;
-  color: #FDD3AD;
-}
-
-.home_post_dt{
-  margin: 0;
-  padding: 10px;
+  padding: 10px 10px 10px 0px;
   color: #D90368;
+  font-family: 'Oswald', sans-serif;
 }
 
-.home_post_span{
+.post_span{
   font-weight: bold;
-  font-size: 22px;
+  font-size: 20px;
   color: #FBA04B;
-}
-
-.home_all{
-  margin: 0 auto;
 }
