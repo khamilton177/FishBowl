@@ -1,12 +1,18 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+Ruby version 2.4.0
+Rails version 5.0.2
 
-* Ruby version- 2.4.0
+Used Paperclip Gem
 
 * System dependencies- rails and gems listed in Gemfile
 
 This is an app similar to Tumbler.  Users can login, write posts, comment on other users' posts.
+
+Sign in users will be directed to their own page.
+
+Home page show last post of each user-
+  Link on usersname will show their profile.
+  Link on Title will go to post view.
+
