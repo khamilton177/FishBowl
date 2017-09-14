@@ -1,20 +1,22 @@
 <div class="all_divs">
-
-<h3>My Post</h3>
-  <% @posts.each do |post| %>
-  <p>
-    <span class="post_t">Title:</span>
-    <%= post.title %>
-  </p>
-  <p class="post">
-    <%= post.content %>
-  </p>
-  <p>
-    <span class="post_span post_dt">Date:</span>
-    <%= time_tag post.created_at %>
-  </p>
+  <h2>My Post</h2>
+    <% @posts.each do |post| %>
+    <p>
+      <span class="post_span post_t">Title:</span>
+      <%= post.title.titlecase %>
+    </p>
+    <p class="post">
+      <%= post.content %>
+    </p>
+    <p>
+      <span class="post_span post_dt">Date:</span>
+      <%= time_tag post.created_at %>
+    </p>
+    <p>
       <%= link_to("View", post_path(post), class: "my_btm_links") %>
       <%= link_to("Edit", edit_post_path(post), class: "my_btm_links") %>
       <%= link_to("Delete", post_path(post), method: :delete, data: { confirm: 'Are you sure you want to delete this post?' }, class: "my_btm_links") %>
-  <% end %>
+    </p>
+    <BR>
+    <% end %>
 </div>

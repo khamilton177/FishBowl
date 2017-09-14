@@ -13,39 +13,38 @@
   font-family: 'Lobster Two', cursive
   */
 
-  .post_u{
-    display: block;
-    font-size: 24px;
-    font-weight: bolder;
-    text-decoration: none;
-    color: #4C6663;
-  }
+.post_u{
+  display: block;
+  font-size: 24px;
+  font-weight: bolder;
+  text-decoration: none;
+  color: #4C6663;
+}
 
-  .post_t{
-    margin: 0;
-    padding: 10px 10px 10px 0px;
-    font-family: 'Oswald', sans-serif;
-    color: #FBA04B;
-  }
-
-  .post{
-    margin: 20px;
-    font-family: 'Indie Flower', cursive;
-    font-size: 20px;
-    color: #FBA04B;
-    border: 1px solid #4C6663;
-    margin: 0;
-    padding: 10px;
-  }
-
-  .post_dt{
+.post_t, .post_dt{
   margin: 0;
   padding: 10px 10px 10px 0px;
-  color: #D90368;
   font-family: 'Oswald', sans-serif;
+  color: #FBA04B;
+}
+
+.post_dt{
+  color: #D90368 !important;
+}
+
+.post{
+  margin: 20px;
+  font-family: 'Indie Flower', cursive;
+  font-size: 20px;
+  color: #FBA04B;
+  border: 1px solid #4C6663;
+  margin: 0;
+  padding: 10px;
+  background-color: white;
 }
 
 .post_span{
+  // font-family: 'Indie Flower', cursive;
   font-weight: bold;
   font-size: 20px;
   color: #FBA04B;

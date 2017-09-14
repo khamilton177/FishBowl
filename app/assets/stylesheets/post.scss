@@ -2,19 +2,30 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
+.all_divs{
+  margin-top: 20px;
+  // position: absolute;
+  // top: 20%;
+  // left: 40%;
+}
+
 .save_f{
   text-align: center;
   color: #FBA04B;
-  background-color: transparent;
-  margin-left: 40%;
+  background-color: white;
+  // margin-left: 40%;
 }
 
 .btm_links{
   margin-left: 115px;
+  // font-family: 'Oswald', sans-serif;
   color: #035C41;
 }
 
 .my_btm_links{
+  margin-right: 100px;
+  // font-family: 'Oswald', sans-serif;
   color: #035C41;
 }
 

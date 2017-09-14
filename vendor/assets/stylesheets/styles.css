@@ -1,0 +1,45 @@
+a:focus, a:hover {
+    color: #4C6663;
+    text-decoration: none;
+}
+
+.lay_page_title:focus, .lay_page_title:hover, .layBtn:focus, .layBtn:hover {
+    color: #FBA04B;
+    text-decoration: none;
+}
+
+.navbar-inverse .navbar-brand, .navbar-inverse .navbar-toggler{
+  color: #FBA04B;
+}
+
+
+/*p {
+  line-height: 2rem;
+}
+
+.button-collapse {
+  color: #26a69a;
+}*/
+
+/*// Extra small devices (portrait phones, less than 576px)
+// No media query since this is the default in Bootstrap
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+
+}*/
