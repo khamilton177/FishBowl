@@ -1,25 +1,27 @@
-<%= form_for @post do |form| %>
-  <% if @post.errors.any? %>
-    <div id="error_explanation">
-      <h2>
-        <%= pluralize(@post.errors.count, "error") %> prohibited
-        this post from being saved:
-      </h2>
-      <ul>
-        <% @post.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
+<div id="modalPostEditForm">
+  <%= form_for @post do |form| %>
+    <% if @post.errors.any? %>
+      <div id="error_explanation">
+        <h2>
+          <%= pluralize(@post.errors.count, "error") %> prohibited
+          this post from being saved:
+        </h2>
+        <ul>
+          <% @post.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <p>
+      <%= form.label :title, class: "post_t" %>
+      <%= form.text_field :title %>
+    </p>
+    <BR>
+    <p>
+      <%= form.text_area :content, class: "f_text_area" %>
+    </p>
+    <BR>
+    <%= form.submit "Save", class: "save_f" %>
   <% end %>
-  <p>
-    <%= form.label :title, class: "post_t" %>
-    <%= form.text_field :title %>
-  </p>
-  <BR>
-  <p>
-    <%= form.text_area :content, class: "f_text_area" %>
-  </p>
-  <BR>
-  <%= form.submit "Save", class: "save_f" %>
-<% end %>
+</div>
