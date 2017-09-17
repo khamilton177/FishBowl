@@ -1,11 +1,6 @@
 class SessionsController < ApplicationController
   before_action :current_user
-
-  def current_user
-    if session[:user_id]
-      @current_user = User.find(session[:user_id])
-    end
-  end
+  before_action :user_from_nav
 
   def sign_in_form
   end
@@ -15,10 +10,10 @@ class SessionsController < ApplicationController
 
     if @user && @user.password == params[:password]
       session[:user_id] = @user.id
-      flash[:notice] = "You have been signed in successfully"
+      flash[:notice] = "You have signed in successfully"
       redirect_to root_path
     else
-      flash[:alert] = "Your username/password combination invalid"
+      flash[:alert] = "Invalid username/password combination"
       redirect_to :back
     end
   end

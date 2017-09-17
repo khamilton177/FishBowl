@@ -1,4 +1,60 @@
-a:focus, a:hover {
+/* Custom css to override Bootstrap
+*/
+
+h1, .h1{
+  font-family: 'Lobster', cursive;
+  color: #FBA04B;
+}
+
+h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6{
+  color: #291720;
+}
+
+.nav-tabs, .nav-item.show, .nav-link{
+  color: #FBA04B !important;
+}
+
+.dropdown-item{
+  color:  #4C6663;
+}
+
+.dropdown-item:hover, .sidebar-module-inset{
+  background-color: #e6ecf0;
+}
+
+.blog-masthead{
+  /*background-color: #03583F;*/
+  background-color: #4C6663;
+}
+
+.blog-header{
+  background-color: white;
+  z-index: 100;
+}
+
+.blog-footer{
+  background-color: rgba(253, 211, 173, 0.2);
+}
+
+.blog-post{
+  padding: 1rem;
+  background-color: rgba(253, 211, 173, 0.2);
+}
+
+.blog-post-title {
+  font-size: 1.5rem;
+}
+
+.blog-post-meta a, a{
+  color: #D90368
+}
+
+.blog-footer a{
+  color: #4C6663;
+}
+
+
+/*a:focus, a:hover {
     color: #4C6663;
     text-decoration: none;
 }
@@ -10,6 +66,10 @@ a:focus, a:hover {
 
 .navbar-inverse .navbar-brand, .navbar-inverse .navbar-toggler{
   color: #FBA04B;
+}*/
+
+.sub-dropdown, .sub-dropup {
+    position: relative;
 }
 
 

@@ -1,5 +1,6 @@
 <!-- users/show.html.erb -->
-<div class="all_divs">
+<div class="col-sm-8 blog-main">
+
   <p><span class="post_t">Username: </span><%=@user.username %></p>
   <BR>
   <p><span class="post_t">Password: ********** </span></p>
@@ -9,13 +10,18 @@
   <p><span class="post_t">First Name:  </span><%=@profile.fname %></p>
   <p><span class="post_t">Last Name:  </span><%=@profile.lname %></p>
   <BR>
-  <p><%= @profile.avatar(:thumb) %></p>
+  <p>Your pic:
+    <% if @profile.avatar? %>
+        <%= image_tag @profile.avatar.url(:thumb) %>
+    <% end %>
+  </p>
   <BR>
-  <span class="post_t">A litte about me: </span>
+  <span class="post_t">A little about me: </span>
   <p class="post"> <%= @profile.about %></p>
   <BR>
   <% if @current_user && @current_user.id == @profile.user_id %>
     <%= link_to("Edit", edit_profile_path, class: "btm_links") %>
   <% end %>
   <%= link_to("Back", :back, class: "btm_links") %>
-</div>
+  
+</div><!-- /.blog-main -->

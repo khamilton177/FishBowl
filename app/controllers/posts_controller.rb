@@ -1,11 +1,6 @@
 class PostsController < ApplicationController
   before_action :current_user
-
-  def current_user
-    if session[:user_id]
-      @current_user = User.find(session[:user_id])
-    end
-  end
+  before_action :user_from_nav
 
   def index
     @posts = Post.all
@@ -15,8 +10,13 @@ class PostsController < ApplicationController
     @posts=Post.where(user_id: params[:user_id])
   end
 
+  def posts_by_author
+    @posts=Post.where(user_id: params[:user_id])
+    @author = params[:user_id]==current_user ? "My Posts" : "#{User.find(params[:user_id]).username}'s Posts"
+  end
+
   def show
-    @post = Post.find(params[:id])
+    @post=Post.find(params[:id])
   end
 
   def new
@@ -61,6 +61,13 @@ class PostsController < ApplicationController
   end
 
   private
+
+  # def user_from_nav
+  #   if current_user
+  #     @user = current_user
+  #   end
+  # end
+
   def post_params
     params.require(:post).permit(:title, :content, :user_id)
   end

@@ -1,12 +1,6 @@
 class CommentsController < ApplicationController
   before_action :current_user
-
-  def current_user
-    if session[:user_id]
-      @current_user = User.find(session[:user_id])
-    end
-    puts "THIS IS CURRENT USER #{@current_user}"
-  end
+  before_action :user_from_nav
 
   def index
   end

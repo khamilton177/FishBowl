@@ -1,195 +1,194 @@
-/*  Layout.erb Styling*/
-
-/* Colors-
- Neon Orange- #FBA04B
- Dogwood Rose- #D90368
- Pearly Purple- #AF5E9B
- Raisin Black- #291720
- Sacramento St. Green- #035C41 or #03583F
- Light Apricot- #FDD3AD
- font-family: 'Lobster', cursive
- font-family: 'Indie Flower', cursive
- font-family: 'Lobster Two', cursive;
- */
-
-html{
-    position: relative;
-    min-height: 100%;
-    box-sizing: border-box;
-}
-
-body{
+// /*  Layout.erb Styling*/
+//
+// /* Colors-
+//  Neon Orange- #FBA04B
+//  Dogwood Rose- #D90368
+//  Pearly Purple- #AF5E9B
+//  Raisin Black- #291720
+//  Sacramento St. Green- #035C41 or #03583F
+//  Light Apricot- #FDD3AD
+//  font-family: 'Lobster', cursive
+//  font-family: 'Indie Flower', cursive
+//  font-family: 'Lobster Two', cursive;
+//  */
+//
+// html{
+//   width: 100%;
+//   min-height: 100%;
+//   box-sizing: border-box;
+// }
+//
+// body{
+//   width: 100%;
+//   height: 100%;
+//   position: relative;
+//   font-family: 'Lobster', cursive;
+//   color: #FBA04B;
+//   margin: 0;
+//   background-color: rgba(253, 211, 173, 0.2);
+// }
+//
+// #notice {
+//   position: absolute;
+//   top: 50%;
+//   left: 40%;
+//   background-color: yellow;
+//   color: white;
+//   font-family: 'Oswald', sans-serif;
+//   padding: 10px;
+//   border-radius: 2px;
+// }
+//
+// #alert {
+//  position: absolute;
+//  top: 50%;
+//  left: 40%;
+//  background-color: red;
+//  color: white;
+//  font-family: 'Oswald', sans-serif;
+//  padding: 10px;
+//  border-radius: 2px;
+// }
+//
+.lay-nav{
   // width: 100%;
-  // height: 100%;
-  font-family: 'Lobster', cursive;
-  color: #FBA04B;
-  margin: 0px;
-  background-color: rgba(253, 211, 173, 0.2);
-}
-
-#notice {
-  position: absolute;
-  top: 50%;
-  left: 40%;
-  background-color: yellow;
-  color: white;
-  font-family: 'Oswald', sans-serif;
-  padding: 10px;
-  border-radius: 2px;
-}
-
-#alert {
- position: absolute;
- top: 50%;
- left: 40%;
- background-color: red;
- color: white;
- font-family: 'Oswald', sans-serif;
- padding: 10px;
- border-radius: 2px;
-}
-
-#lay-nav{
-  width: 100%;
-  height: 125px;
+  // height: auto;
   color: #FBA04B;
   background-image:url("fishbowl.jpg");
-  background-size: cover;
+  background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
 }
-
-.body-wrapper{
-  width: 100%;
-  height: 100%;
-  position: relative;
-}
-
+//
+// .body-wrapper{
+//   width: 100%;
+//   height: 100%;
+//   position: relative;
+// }
+//
 .img-div{
-   width: 100%;
-   position: absolute;
-   top: 0;
-   left: 50%;
-   -ms-transform: translateX(-50%);
-   -webkit-transform: translateX(-50%);
-   -moz-transform: translateX(-50%);
-   -o-transform: translateX(-50%);
-   transform: translateX(-50%);
-   z-index: -9999;
+  width: 100%;
+  min-height: 568px;
+  position: relative;
+  margin-top: 70px;
+  background-image:url("fishbowl.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
-
-.lay_page_title{
-  // position: relative;
-  // margin-left: 20px;
-  color: #FBA04B;
-  font-size: 75px;
-  font-weight: 300;
-  text-decoration: none;
-}
-
-.layBtn{
-  // width: 125px;
-  // position: relative;
-  // top: 0px;
-  // right: 20px;
-  // float: right;
-  margin-top: 20px;
-  padding: 10px;
-  border: none;
-  border-radius: 3px;
-  color: #FBA04B;
-  font-size: 25px;
-  font-weight: 300;
-  text-decoration: none;
-}
-
-.lay_drop_cnt{
-  // position: relative;
-  // top: 20px;
-  // float: right;
-  // display: inline-block;
-}
-
-.lay_drop_dwn{
-  width: 125px;
-  display: none;
-  // position: absolute;
-  // top: 40px;
-  // right: 20px;
-  background-color: #e6ecf0;
-  border-radius: 3px;
-  box-shadow: 0px 10px 18px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-  padding-top: 10px;
-  padding-bottom: 10px;
-}
-
-.lay_drop_lnks{
-  display: block;
-  width: 120px;
-  padding: 10px 5px 10px 10px;
-  color: #0D0221;
-  font-size: 18px;
-  font-weight: 300;
-  text-decoration: none;
-}
-
+//
+// .lay_page_title{
+//   // position: relative;
+//   // margin-left: 20px;
+//   color: #FBA04B;
+//   font-size: 75px;
+//   font-weight: 300;
+//   text-decoration: none;
+// }
+//
+// .layBtn{
+//   // width: 125px;
+//   // position: relative;
+//   // top: 0px;
+//   // right: 20px;
+//   // float: right;
+//   margin-top: 20px;
+//   padding: 10px;
+//   border: none;
+//   border-radius: 3px;
+//   color: #FBA04B;
+//   font-size: 25px;
+//   font-weight: 300;
+//   text-decoration: none;
+// }
+//
+// .lay_drop_cnt{
+//   // position: relative;
+//   // top: 20px;
+//   // float: right;
+//   // display: inline-block;
+// }
+//
+// .lay_drop_dwn{
+//   width: 125px;
+//   display: none;
+//   // position: absolute;
+//   // top: 40px;
+//   // right: 20px;
+//   background-color: #e6ecf0;
+//   border-radius: 3px;
+//   box-shadow: 0px 10px 18px 0px rgba(0,0,0,0.2);
+//   z-index: 1;
+//   padding-top: 10px;
+//   padding-bottom: 10px;
+// }
+//
+// .lay_drop_lnks{
+//   display: block;
+//   width: 120px;
+//   padding: 10px 5px 10px 10px;
+//   color: #0D0221;
+//   font-size: 18px;
+//   font-weight: 300;
+//   text-decoration: none;
+// }
+//
 .laySignOut{
   color: #FBA04B;
 }
-
-.lay_drop_lnks:hover {
-  background-color: #4C6663;
-  color: white;
-  text-decoration: none;
-}
-
-.lay_drop_cnt:hover .lay_drop_dwn{
-  display: block;
-}
-
-.lay_drop_cnt:hover #lay_acct{
-  background-color: #4C6663;
-}
-
-.all_forms{
-   position: absolute;
-   top: 30%;
-   left: 10%;
-   background-color: white;
-   border: thick solid #291720;
-   color: #FBA04B;
-   height: 400px;
-   width: 400px;
-}
-
-.all_f_btn{
-
-}
-
-// Extra small devices (portrait phones, less than 576px)
-// No media query since this is the default in Bootstrap
-
-// Small devices (landscape phones, 576px and up)
-@media (min-width: 576px) {
-  .navbar-collapse, .navbar-header{
-
-  }
-}
-
-// Medium devices (tablets, 768px and up)
-@media (min-width: 768px) {
-  .navbar-collapse, .navbar-header{
-
-  }
-}
-
-// Large devices (desktops, 992px and up)
-@media (min-width: 992px) {
-
-}
-
-// Extra large devices (large desktops, 1200px and up)
-@media (min-width: 1200px) {
-
-}
+//
+// .lay_drop_lnks:hover {
+//   background-color: #4C6663;
+//   color: white;
+//   text-decoration: none;
+// }
+//
+// .lay_drop_cnt:hover .lay_drop_dwn{
+//   display: block;
+// }
+//
+// .lay_drop_cnt:hover #lay_acct{
+//   background-color: #4C6663;
+// }
+//
+// .all_forms{
+//    position: absolute;
+//    top: 30%;
+//    left: 10%;
+//    background-color: white;
+//    border: thick solid #291720;
+//    color: #FBA04B;
+//    height: 400px;
+//    width: 400px;
+// }
+//
+// .all_f_btn{
+//
+// }
+//
+// // Extra small devices (portrait phones, less than 576px)
+// // No media query since this is the default in Bootstrap
+//
+// // Small devices (landscape phones, 576px and up)
+// @media (min-width: 576px) {
+//   .navbar-collapse, .navbar-header{
+//
+//   }
+// }
+//
+// // Medium devices (tablets, 768px and up)
+// @media (min-width: 768px) {
+//   .navbar-collapse, .navbar-header{
+//
+//   }
+// }
+//
+// // Large devices (desktops, 992px and up)
+// @media (min-width: 992px) {
+//
+// }
+//
+// // Extra large devices (large desktops, 1200px and up)
+// @media (min-width: 1200px) {
+//
+// }

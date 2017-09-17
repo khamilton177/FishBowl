@@ -1,0 +1,21 @@
+<ul class="nav nav-tabs nav-justified">
+  <li class="nav-item">
+    <%= link_to("Home", root_path, id: "logo", class: "navbar-brand nav-link") %>
+  </li>
+  <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+       <small>Have an account?</small> <span class="emphasize"> Log in</span><span class="caret"></span>
+    </a>
+    <div class="dropdown-menu dropdown-menu-right">
+      <div class="signin-dialog-body dropdown-item">
+        <div>Have an account?</div>
+          <%= render "sessions/sign_in_form" %>
+          <hr>
+          <div class="signup SignupForm">
+            <div class="SignupForm-header">New fish in the bowl?</div>
+              <%= link_to("Sign Up", new_user_path, id: "lay_up", class: "layBtn") %>
+          </div>
+      </div>
+    </div>
+  </li>
+</ul>

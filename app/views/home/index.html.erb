@@ -1,21 +1,23 @@
-<div class="all_divs">
+
+<div class="col-sm-8 blog-main">
+
   <!-- Display each user along with their latest post -->
   <% @users.each do |user| %>
-    <p>
-      <% @post=@posts.where(user_id: user.id).last %>
-      <%= link_to("#{user.username}".capitalize, user_path(user.id), method: :get, class: "post_u") %>
-  </p>
+    <% @post=@posts.where(user_id: user.id).last %>
     <% if @post %>
-      <p>
-        <%= link_to("TITLE: #{@post.title}", post_path(@post.id), method: :get, class: "post_t") %>
-      </p>
-      <p class="post">
-        <%= @post.content %>
-      </p>
-      <p>
-        <span class="post_span post_dt">Date: </span>
-        <%= time_tag @post.created_at %>
-      </p>
+      <div class="blog-post">
+        <h2 class="blog-post-title"><%= @post.title %></h2>
+        <p class="blog-post-meta"><%= @post.created_at.strftime("%B %d, %Y") %> by <%= link_to("#{user.username}".capitalize, posts_by_author_path(user.id), method: :get, class: "post-user-link") %></p>
+        <blockquote>
+          <%= @post.content %>
+        </blockquote>
+      </div><!-- /.blog-post -->
     <% end %>
   <% end %>
-</div>
+
+  <!-- <nav class="blog-pagination">
+        <a class="btn btn-outline-primary" href="#">Older</a>
+        <a class="btn btn-outline-secondary disabled" href="#">Newer</a>
+      </nav> -->
+
+</div><!-- /.blog-main -->

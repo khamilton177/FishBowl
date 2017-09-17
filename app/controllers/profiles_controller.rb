@@ -1,11 +1,6 @@
 class ProfilesController < ApplicationController
   before_action :current_user
-
-  def current_user
-    if session[:user_id]
-      @current_user = User.find(session[:user_id])
-    end
-  end
+  before_action :user_from_nav
 
   def index
     @profiles = Profile.all
@@ -48,6 +43,12 @@ class ProfilesController < ApplicationController
       flash[:alert] = "Update failed"
       redirect_to edit_profile_path(@profile)
     end
+  end
+
+  def remove_avatar
+    @profile = Profile.where(params[:user_id]).first
+    @profile.avatar = nil
+    @profile.save
   end
 
   def destroy

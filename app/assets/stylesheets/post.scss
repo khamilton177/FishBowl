@@ -1,35 +1,39 @@
-// Place all the styles related to the post controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+// // Place all the styles related to the post controller here.
+// // They will automatically be included in application.css.
+// // You can use Sass (SCSS) here: http://sass-lang.com/
+//
+//
+// .all_divs{
+//   margin-top: 20px;
+//   // position: absolute;
+//   // top: 20%;
+//   // left: 40%;
+// }
+//
+// .save_f{
+//   text-align: center;
+//   color: #FBA04B;
+//   background-color: white;
+//   // margin-left: 40%;
+// }
+//
 
-
-.all_divs{
-  margin-top: 20px;
-  // position: absolute;
-  // top: 20%;
-  // left: 40%;
+.post_links{
+  color: #035C41;
 }
 
-.save_f{
-  text-align: center;
+.post_links:hover{
   color: #FBA04B;
-  background-color: white;
-  // margin-left: 40%;
 }
 
-.btm_links{
-  margin-left: 115px;
-  // font-family: 'Oswald', sans-serif;
-  color: #035C41;
-}
-
-.my_btm_links{
-  margin-right: 100px;
-  // font-family: 'Oswald', sans-serif;
-  color: #035C41;
-}
-
-.f_text_area{
-  width: 400px;
-  height: 100px;
-}
+//
+// .my_btm_links{
+//   margin-right: 100px;
+//   // font-family: 'Oswald', sans-serif;
+//   color: #035C41;
+// }
+//
+// .f_text_area{
+//   width: 400px;
+//   height: 100px;
+// }

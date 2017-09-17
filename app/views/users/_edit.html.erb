@@ -1,0 +1,21 @@
+<!-- _User Edit Form -->
+<%= form_for @user do |form| %>
+  <% if @user.errors.full_messages.any? %>
+  <ul>
+    <% @user.errors.full_messages.each do |error_message| %>
+    <li>
+      <%= error_message %>
+    </li>
+    <br>
+    <% end %>
+  </ul>
+  <% end %>
+  <p>
+    Username:  <%= form.text_field :username, placeholder: "Username", class: "sign_up", readonly: "true"%>
+  </p>
+  <BR>
+  <p>
+    Password  <%= form.password_field :password, placeholder: "Password", class: "sign_up" %>
+  </p>
+    <%= form.submit "Save", class: "save_f" %>
+<% end %>

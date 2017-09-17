@@ -1,11 +1,7 @@
 class UsersController < ApplicationController
   before_action :current_user
-
-  def current_user
-    if session[:user_id]
-      @current_user = User.find(session[:user_id])
-    end
-  end
+  before_action :user_from_nav
+  skip_before_action :user_from_nav, only: [:new, :create]
 
   def index
     @users = User.all
@@ -35,7 +31,6 @@ class UsersController < ApplicationController
 
     if @user.save
       session[:user_id]=@user.id
-      flash[:notice] = "User created"
       redirect_to new_profile_path
     else
       flash[:alert] = "Sign-Up failed"

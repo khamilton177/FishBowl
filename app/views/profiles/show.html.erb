@@ -8,11 +8,15 @@
     <p>Email:  <%=@profile.email %></p>
   <BR>
   <span>First Name:  <%=@profile.fname %></span>
-  <span>Lasst Name:  <%=@profile.lname %></span>
+  <span>Last Name:  <%=@profile.lname %></span>
   <BR>
-  <p><%= @profile.avatar(:thumb) %></p>
+  <p>Profie Picture:
+    <% if @profile.avatar? %>
+        <%= image_tag @profile.avatar.url(:thumb) %>
+    <% end %>
+  </p>
   <BR>
-  <p>A litte about me:</p>
+  <p>A little about me:</p>
   <p> <%= @profile.about %></p>
   <BR>
   <% if @current_user && @current_user.id == @profile.user_id %>

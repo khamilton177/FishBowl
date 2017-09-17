@@ -12,7 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
-// require tether
+//= require tether
+//= require stickyfill.min
 //= require turbolinks
 //= require bootstrap.min
 //= require_tree .

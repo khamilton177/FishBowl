@@ -1,51 +1,58 @@
-// Place all the styles related to the home controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-/* Colors-
-  Neon Orange- #FBA04B
-  Dogwood Rose- #D90368
-  Pearly Purple- #AF5E9B
-  Raisin Black- #291720
-  Sacramento St. Green- #035C41 or #03583F
-  Light Apricot- #FDD3AD
-  font-family: 'Lobster', cursive
-  font-family: 'Indie Flower', cursive
-  font-family: 'Lobster Two', cursive
-  */
+// // Place all the styles related to the home controller here.
+// // They will automatically be included in application.css.
+// // You can use Sass (SCSS) here: http://sass-lang.com/
+// /* Colors-
+//   Neon Orange- #FBA04B
+//   Dogwood Rose- #D90368
+//   Pearly Purple- #AF5E9B
+//   Raisin Black- #291720
+//   Sacramento St. Green- #035C41 or #03583F
+//   Light Apricot- #FDD3AD
+//   font-family: 'Lobster', cursive
+//   font-family: 'Indie Flower', cursive
+//   font-family: 'Lobster Two', cursive
+//   */
+//
 
-.post_u{
-  display: block;
-  font-size: 24px;
-  font-weight: bolder;
-  text-decoration: none;
-  color: #4C6663;
+.sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 71px;
 }
 
-.post_t, .post_dt{
-  margin: 0;
-  padding: 10px 10px 10px 0px;
-  font-family: 'Oswald', sans-serif;
-  color: #FBA04B;
-}
-
-.post_dt{
-  color: #D90368 !important;
-}
-
-.post{
-  margin: 20px;
-  font-family: 'Indie Flower', cursive;
-  font-size: 20px;
-  color: #FBA04B;
-  border: 1px solid #4C6663;
-  margin: 0;
-  padding: 10px;
-  background-color: white;
-}
-
-.post_span{
-  // font-family: 'Indie Flower', cursive;
-  font-weight: bold;
-  font-size: 20px;
-  color: #FBA04B;
-}
+// .post_u{
+//   display: block;
+//   font-size: 24px;
+//   font-weight: bolder;
+//   text-decoration: none;
+//   color: #4C6663;
+// }
+//
+// .post_t, .post_dt{
+//   margin: 0;
+//   padding: 10px 10px 10px 0px;
+//   font-family: 'Oswald', sans-serif;
+//   color: #FBA04B;
+// }
+//
+// .post_dt{
+//   color: #D90368 !important;
+// }
+//
+// .post{
+//   margin: 20px;
+//   font-family: 'Indie Flower', cursive;
+//   font-size: 20px;
+//   color: #FBA04B;
+//   border: 1px solid #4C6663;
+//   margin: 0;
+//   padding: 10px;
+//   background-color: white;
+// }
+//
+// .post_span{
+//   // font-family: 'Indie Flower', cursive;
+//   font-weight: bold;
+//   font-size: 20px;
+//   color: #FBA04B;
+// }

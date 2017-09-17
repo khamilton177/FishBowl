@@ -1,33 +1,23 @@
-<div class="all_divs">
-<p>
-  <span class="post_t">Title:</span>
-  <%= @post.title %>
-</p>
-<p class="post">
-  <%= @post.content %>
-</p>
-<p>
-  <span class="post_span post_dt">Date:</span>
-  <%= time_tag @post.created_at %>
-</p>
-<% if @current_user && @current_user.id == @post.user_id %>
-  <%= link_to("Edit", edit_post_path(@post), class: ".btm_links", class: "btm_links") %>
-  <%= link_to("Delete", post_path(@post), method: :delete, data: { confirm: 'Are you sure you want to delete this post?' }, class: "btm_links") %>
-<% end %>
-<p>
-<span class="post_t">Comments:</span>
-</p>
-<% @post.comments.each do |comment| %>
-  <p class="post"><%= comment.content %></p>
-  <% if @current_user && @current_user.id == comment.user_id %>
-    <%= link_to("Delete", [comment.post, comment], method: :delete, data: { confirm: 'Delete comment?' }, class: "btm_links") %>
+<div class="col-sm-8 blog-main">
+  <p>
+    <span class="post_t">Title:</span>
+    <%= @post.title %>
+  </p>
+  <p class="post">
+    <%= @post.content %>
+  </p>
+  <p>
+    <span class="post_span post_dt">Date:</span>
+    <%= @post.created_at.strftime("%B %d, %Y") %>
+  </p>
+  <a href="#" class="post_links"><i class="fa fa-comment-o" aria-hidden="true"></i></a>
+  <% if @current_user && @current_user.id == @post.user_id %>
+    <%= link_to edit_post_path(@post), class: "m-3 post_links"  do %>
+      <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+    <% end %>
+    <%= link_to post_path(@post), method: :delete, data: { confirm: 'Are you sure you want to delete this post?' }, class: "m-3 post_links" do %>
+      <i class="fa fa-trash-o" aria-hidden="true"></i>
+    <% end %>
   <% end %>
-  <BR>
-<% end %>
-<% if @current_user %>
-  <span class="post_t">Add a Comment:</span>
-  <%= render "comments/comment_form" %>
-<% end %>
-<BR>
-<%= link_to("Back", :back, class: "btm_links") %>
-</div>
+  <%= link_to("Back", :back, class: "m-3 post_links") %>
+</div> <!-- /.blog-main -->

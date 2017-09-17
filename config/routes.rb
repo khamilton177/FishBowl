@@ -13,7 +13,7 @@ Rails.application.routes.draw do
     resources :comments
   end
 
- get "/posts/:user_id/posts" => "posts#my_post", as: "my_post"
+ get "/posts/:user_id/posts" => "posts#posts_by_author", as: "posts_by_author"
 
   # # get 'profiles/index'
   # #
