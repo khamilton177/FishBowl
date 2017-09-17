@@ -12,7 +12,7 @@ class PostsController < ApplicationController
 
   def posts_by_author
     @posts=Post.where(user_id: params[:user_id])
-    @author = params[:user_id]==current_user ? "My Posts" : "#{User.find(params[:user_id]).username}'s Posts"
+    @author = params[:user_id] == current_user.id.to_s ? "My Posts" : "#{User.find(params[:user_id]).username.capitalize}'s Posts"
   end
 
   def show
@@ -61,12 +61,6 @@ class PostsController < ApplicationController
   end
 
   private
-
-  # def user_from_nav
-  #   if current_user
-  #     @user = current_user
-  #   end
-  # end
 
   def post_params
     params.require(:post).permit(:title, :content, :user_id)
