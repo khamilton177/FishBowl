@@ -21,3 +21,11 @@
 
 en:
   hello: "Hello world"
+
+  activerecord:
+    models:
+      post: 'Post'
+    attributes:
+      post:
+        title: "What's new?  "
+        content: 'Content:  '

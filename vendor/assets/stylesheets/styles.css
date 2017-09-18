@@ -1,5 +1,16 @@
 /* Custom css to override Bootstrap
 */
+/* Colors-
+  Neon Orange- #FBA04B
+  Dogwood Rose- #D90368
+  Pearly Purple- #AF5E9B
+  Raisin Black- #291720
+  Sacramento St. Green- #035C41 or #03583F
+  Light Apricot- #FDD3AD
+  font-family: 'Lobster', cursive
+  font-family: 'Indie Flower', cursive
+  font-family: 'Lobster Two', cursive;
+*/
 
 h1, .h1{
   font-family: 'Lobster', cursive;
@@ -53,6 +64,41 @@ h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6{
   color: #4C6663;
 }
 
+.btn-primary{
+  background-color: #FBA04B;
+  border-color: #FBA04B;
+}
+
+.btn-primary:hover{
+  color: white;
+  background-color: #4C6663;
+}
+
+.btn-secondary{
+  color: #FBA04B;
+  border-color:  #e6ecf0;
+}
+
+.btn-secondary:hover{
+  color: #4C6663;
+  background-color: #e6ecf0;
+}
+
+.modal-title{
+  color: #FBA04B;
+}
+
+.modal-header{
+  background-color: #4C6663;
+}
+
+.modal-body{
+  background-color: rgba(253, 211, 173, 0.2);
+}
+
+.modal-footer{
+  background-color: white;
+}
 
 /*a:focus, a:hover {
     color: #4C6663;

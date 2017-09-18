@@ -1,4 +1,4 @@
-<div class="all_divs">
+<div class="col-sm-8 blog-main">
   <%= form_for @profile, html: {multipart: true} do |form| %>
     <% if @profile.errors.full_messages.any? %>
     <ul>
@@ -33,4 +33,4 @@
     <%= form.submit "Save", class: "save_f" %>
     <% end %>
     <%= link_to("Back", :back, class: "btm_links") %>
-</div>
+</div> <!-- /.blog-main -->

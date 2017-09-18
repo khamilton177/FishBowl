@@ -15,9 +15,6 @@
             <%= link_to edit_post_path(post.id), class: "m-3 post_links", data: {remote: true, toggle: "modal", target: "#editPostModal"} do %>
               <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
             <% end %>
-            <%= link_to edit_post_path(post.id), class: "m-3 post_links" do %>
-              <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-            <% end %>
             <%= link_to post_path(post.id), method: :delete, data: { confirm: 'Are you sure you want to delete this post?' }, class: "m-3 post_links" do %>
               <i class="fa fa-trash-o" aria-hidden="true"></i>
             <% end %>
@@ -27,10 +24,4 @@
     <% end %>
 </div> <!-- /.blog-main -->
 
-<!-- editModal skeleton -->
-<div class="modal fade" id="editPostModal">
-  <div class="modal-dialog">
-    <div class="modal-content">
-    </div>
-  </div>
-</div>
+<%= render "layouts/modals" %>

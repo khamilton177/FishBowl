@@ -1,4 +1,18 @@
-  <h1>What's New</h1>
-  <%= render "post_form" %>
-  <BR>
-  <%= link_to("Back", posts_path, class: "btm_links") %>
+<!--  COMING FROM _NEW -->
+<!-- newPostModal Content/Body -->
+
+<!-- <div class="modal-content"> -->
+  <div class="modal-header">
+    <h5 class="modal-title" id="newPostModalLabel">What's new?</h5>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+      <span aria-hidden="true">×</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <%= render "post_form" %>
+  </div>
+  <!-- <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+    <button type="button" class="btn btn-primary">Save</button>
+  </div> -->
+<!-- </div> -->
