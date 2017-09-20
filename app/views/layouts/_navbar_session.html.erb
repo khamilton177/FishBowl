@@ -1,6 +1,6 @@
 <ul class="nav nav-tabs nav-justified">
   <li class="nav-item">
-    <%= link_to("Home", root_path, id: "logo", class: "navbar-brand nav-link") %>
+    <%= link_to(" ", root_path, id: "logo", class: "navbar-brand nav-link #{controller.controller_name}") %>
   </li>
   <li class="nav-item">
     <%= link_to("My Post", posts_by_author_path(@current_user.id), method: :get, class: "nav-link lay_drop_lnks") %>
@@ -11,7 +11,7 @@
 
   <li class="nav-item dropdown">
     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-       <small>Logged in as</small> <span class="emphasize"><%= current_user.username %></span><span class="caret"></span>
+       <small>Logged in as</small> <span class="emphasize"><%= current_user.username.capitalize %></span><span class="caret"></span>
     </a>
     <div class="dropdown-menu dropdown-menu-right">
       <%= link_to("Profile", user_path(@current_user), method: :get, class: "dropdown-item lay_drop_lnks") %>

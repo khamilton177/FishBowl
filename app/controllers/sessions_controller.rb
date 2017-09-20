@@ -24,7 +24,6 @@ class SessionsController < ApplicationController
 
   def sign_out
     session[:user_id] = nil
-    puts "Current after sign out #{@current_user.id}"
     redirect_to root_path
   end
 end

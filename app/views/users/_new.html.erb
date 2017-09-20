@@ -1,0 +1,32 @@
+<!-- Users _New Form -->
+
+<div class="modal-header">
+  <h5 class="modal-title" id="signUpModalLabel">Sign Up</h5>
+  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+    <span aria-hidden="true">×</span>
+  </button>
+</div>
+<div class="modal-body">
+  <%= form_for @user, url: users_path, method: :create, remote: true, authenticity_token: true, html: {multipart: true} do |f| %>
+    <% if @user.errors.full_messages.any? %>
+      <ul>
+        <% @user.errors.full_messages.each do |error_message| %>
+        <li>
+          <%= error_message %>
+        </li>
+        <br>
+        <% end %>
+      </ul>
+    <% end %>
+    <div class="form-group">
+      Username:  <%= f.text_field :username, placeholder: "Username", class: "form-control sign_up" %>
+    </div>
+    <div class="form-group">
+      Password  <%= f.password_field :password, placeholder: "Password", class: "form-control sign_up" %>
+    </div>
+    <div class="modal-footer">
+      <%= f.submit "Save", class: "btn btn-primary" %>
+      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+    </div>
+  <% end %>
+</div>

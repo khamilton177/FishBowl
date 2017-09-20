@@ -12,7 +12,7 @@ class PostsController < ApplicationController
 
   def posts_by_author
     @posts=Post.where(user_id: params[:user_id])
-    @author = params[:user_id] == current_user.id.to_s ? "My Posts" : "#{User.find(params[:user_id]).username.capitalize}'s Posts"
+    @author = current_user && current_user.id.to_s == params[:user_id] ? "My Posts" : "#{User.find(params[:user_id]).username.capitalize}'s Posts"
   end
 
   def show

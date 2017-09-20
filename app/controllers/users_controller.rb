@@ -12,17 +12,9 @@ class UsersController < ApplicationController
     @profile = Profile.where(user_id: params[:id]).first
   end
 
-  def my_post
-    @posts=Post.where(params[:user_id])
-  end
-
   def new
     puts params.inspect
     @user = User.new
-  end
-
-  def edit
-    @user = User.find(params[:id])
   end
 
   def create
@@ -36,6 +28,10 @@ class UsersController < ApplicationController
       flash[:alert] = "Sign-Up failed"
       render :new
     end
+  end
+
+  def edit
+    @user = User.find(params[:id])
   end
 
   def update
@@ -59,6 +55,10 @@ class UsersController < ApplicationController
       flash[:alert] = "Delete failed"
       render :back
     end
+  end
+  
+  def my_post
+    @posts=Post.where(params[:user_id])
   end
 
   private

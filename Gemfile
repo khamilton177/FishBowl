@@ -48,6 +48,11 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
+# Paperclip used to attach images
 gem "paperclip", "~> 5.0.0"
 
+# Tether required for Bootstrap tooltips
 gem 'rails-assets-tether', '~> 1.1', '>= 1.1.1'
+
+# Froala-wsiwyg used for form field HTML editor
+gem "wysiwyg-rails"

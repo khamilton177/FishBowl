@@ -21,24 +21,22 @@
         <% end %>
     </div>
 
-    <% if flash[:notice] %>
-      <div id="notice">
-        <%= flash[:notice] %>
-      </div>
-    <% end %>
-    <% if flash[:alert] %>
-      <div id="alert">
-        <%= flash[:alert] %>
-      </div>
-    <% end %>
+    <header class="<%= controller.action_name %>">
+    <!-- <header class="lay-header"> -->
 
-    <header class="lay-header">
+      <% if flash[:notice] %>
+        <div id="notice">
+          <%= flash[:notice] %>
+        </div>
+      <% end %>
+      <% if flash[:alert] %>
+        <div id="alert">
+          <%= flash[:alert] %>
+        </div>
+      <% end %>
     </header>
 
     <div class="sticky blog-header">
-      <!-- <div class="img-fluid">
-        <%= image_tag("fishbowl.jpg", class: "img_div") %>
-      </div> -->
       <div class="container">
         <h1 class="blog-title">Fishbowl</h1>
         <p class="lead blog-description">A little blog for a big world.</p>
@@ -48,8 +46,8 @@
     <div class="container">
       <div class="row">
       <%= yield %>
-
-    <%= render "layouts/sidebar" %>
+      <%= render "layouts/modals" %>
+      <%= render "layouts/sidebar" %>
 
       </div><!-- /.row -->
     </div><!-- /.container -->

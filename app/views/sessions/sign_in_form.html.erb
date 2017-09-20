@@ -1,12 +1,20 @@
-<div class="all_divs">
-  <%= form_tag "/sign_in", method: :post do %>
-   <p>
-       Username:  <input type="text" name="username" placeholder="Username" class="sign" data-required="required" value="">
-    </p>
-    <BR>
-    <p>
-      Password:  <input type="password" name="password" placeholder="Password" class="sign" data-required="required" value="">
-    <p>
-    <%= submit_tag "Go", class: "save_f" %>
-  <% end %>
-</div>
+<%= form_tag "/sign_in", method: :post do %>
+  <div class="LoginForm-input LoginForm-username">
+    <input type="text" name="username" placeholder="Username" class="sign" data-required="required" value="">
+  </div>
+
+  <div class="LoginForm-input LoginForm-password">
+    <input type="password" name="password" placeholder="Password" class="sign" data-required="required" value="">
+  </div>
+
+  <div class="LoginForm-rememberForgot">
+    <label>
+      <input type="checkbox" value="1" name="remember_me" checked="checked">
+      <span>Remember me</span>
+    </label>
+    <span class="separator">·</span>
+    <a class="forgot" href="/account/begin_password_reset" rel="noopener">Forgot password?</a>
+  </div>
+
+  <%= submit_tag "Go", class: "save_f" %>
+<% end %>

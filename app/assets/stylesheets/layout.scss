@@ -26,7 +26,16 @@
   border-radius: 2px;
 }
 
-.lay-header{
+.sessions::after, .home::after, .users::after{
+  content: "Home";
+}
+
+.profile::after, .posts::after, .comments::after{
+  content: "Fishbowl";
+  font-family: 'Lobster', cursive;
+}
+
+.index{
   width: 100%;
   min-height: 568px;
   position: relative;
