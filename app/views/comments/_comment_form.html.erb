@@ -1,8 +1,11 @@
-<%= form_for([@post, @post.comments.build]) do |comment_f| %>
-  <p>
-    <%= comment_f.text_area :content, class: "prof_f" %>
-  </p>
-  <p>
-    <%= comment_f.submit "Save", class: "save_f" %>
-  </p>
+
+<%= form_for @comment, url: post_comments_path, method: :create, remote: true, authenticity_token: true do |comment_f| %>
+  <div class="form-group">
+    <%= comment_f.label :content, class: "post-label" %>
+    <%= comment_f.text_area :content, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= comment_f.submit "Save", class: "btn btn-primary" %>
+    <%= link_to("Back", :back, class: "btn btn-secondary") %>
+  </div>
 <% end %>

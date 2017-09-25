@@ -7,7 +7,8 @@ Rails.application.routes.draw do
   delete "/sign_out" => "sessions#sign_out", as: "sign_out"
 
   resources :users
-  resource :profile
+  resources :profiles
+  # resource :profile
 
   resources :posts do
     resources :comments

@@ -1,11 +1,6 @@
-<input class="home" type="hidden" name="current_user" value="<%= @current_user.id %>">
+<!--  Posts index -->
 
-<h1>My Post</h1>
-  <% @posts.each do |post| %>
-      <p class="home_post_t"><span class="home_post_span">Title: </span><%= post.title %></p>
-      <p class="home_post"><%= post.content %></p>
-      <p class="home_post_dt"><span class="home_post_span">Date: </span><%= time_tag post.created_at %></p>
-      <%= link_to("View", post_path(post)) %>
-      <%= link_to("Edit", edit_post_path(post)) %>
-      <%= link_to("Delete", post_path(post), method: :delete, data: { confirm: 'Are you sure you want to delete this post?' }) %>
-  <% end %>
+<div class="col-sm-8 blog-main">
+  <h2>All Posts</h2>
+  <%= render "posts/all_posts" %>
+</div> <!-- /.blog-main -->

@@ -1,26 +1,29 @@
-<h1>Profile Show</h1>
-
+<!-- Profiles show -->
 <div class="col-sm-8 blog-main">
-  <p>Username: <%=@user.username %></p>
+
+  <h1>Profile Show</h1>
+
+  <p><span class="post_t">Username: </span><%=@profile.user.username %></p>
   <BR>
-  <p>Password: **********</p>
+  <p><span class="post_t">Password: ********** </span></p>
   <BR>
-    <p>Email:  <%=@profile.email %></p>
+    <p><span class="post_t">Email:   </span><%=@profile.email %></p>
   <BR>
-  <span>First Name:  <%=@profile.fname %></span>
-  <span>Last Name:  <%=@profile.lname %></span>
+  <p><span class="post_t">First Name:  </span><%=@profile.fname %></p>
+  <p><span class="post_t">Last Name:  </span><%=@profile.lname %></p>
   <BR>
-  <p>Profie Picture:
+  <p>Your pic:
     <% if @profile.avatar? %>
         <%= image_tag @profile.avatar.url(:thumb) %>
     <% end %>
   </p>
   <BR>
-  <p>A little about me:</p>
-  <p> <%= @profile.about %></p>
+  <span class="post_t">A little about me: </span>
+  <p class="post"> <%= @profile.about %></p>
   <BR>
   <% if @current_user && @current_user.id == @profile.user_id %>
     <%= link_to("Edit", edit_profile_path, class: "btm_links") %>
   <% end %>
   <%= link_to("Back", :back, class: "btm_links") %>
-</div> <!-- /.blog-main -->
+
+</div><!-- /.blog-main -->

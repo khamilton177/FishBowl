@@ -5,23 +5,23 @@
   <BR>
   <p><span class="post_t">Password: ********** </span></p>
   <BR>
-    <p><span class="post_t">Email:   </span><%=@profile.email %></p>
+    <p><span class="post_t">Email:   </span><%=@user.profile.email %></p>
   <BR>
-  <p><span class="post_t">First Name:  </span><%=@profile.fname %></p>
-  <p><span class="post_t">Last Name:  </span><%=@profile.lname %></p>
+  <p><span class="post_t">First Name:  </span><%=@user.profile.fname %></p>
+  <p><span class="post_t">Last Name:  </span><%=@user.profile.lname %></p>
   <BR>
   <p>Your pic:
-    <% if @profile.avatar? %>
-        <%= image_tag @profile.avatar.url(:thumb) %>
+    <% if @user.profile.avatar? %>
+        <%= image_tag @user.profile.avatar.url(:thumb) %>
     <% end %>
   </p>
   <BR>
   <span class="post_t">A little about me: </span>
-  <p class="post"> <%= @profile.about %></p>
+  <p class="post"> <%= @user.profile.about %></p>
   <BR>
-  <% if @current_user && @current_user.id == @profile.user_id %>
-    <%= link_to("Edit", edit_profile_path, class: "btm_links") %>
+  <% if @current_user && @current_user.id == @user.profile.user_id %>
+    <%= link_to("Edit", edit_profile_path(@user.profile.id), class: "btm_links") %>
   <% end %>
   <%= link_to("Back", :back, class: "btm_links") %>
-  
+
 </div><!-- /.blog-main -->

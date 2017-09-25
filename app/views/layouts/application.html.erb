@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>FishBowl</title>
+    <link rel="shortcut icon" href="<%=asset_path("favicon.ico")%>" type="image/x-icon">
     <%= csrf_meta_tags %>
     <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <%= stylesheet_link_tag "https://fonts.googleapis.com/css?family=Indie+Flower|Lobster|Lobster+Two" %>
@@ -21,7 +22,7 @@
         <% end %>
     </div>
 
-    <header class="<%= controller.action_name %>">
+    <header class="<%= controller.controller_name %>-<%= controller.action_name %>-header">
     <!-- <header class="lay-header"> -->
 
       <% if flash[:notice] %>
@@ -36,14 +37,14 @@
       <% end %>
     </header>
 
-    <div class="sticky blog-header">
+    <div class="sticky blog-header <%= controller.controller_name %>-no-blog-header">
       <div class="container">
         <h1 class="blog-title">Fishbowl</h1>
         <p class="lead blog-description">A little blog for a big world.</p>
       </div>
     </div>
 
-    <div class="container">
+    <div class="container <%= controller.controller_name %>-container <%= controller.controller_name %>-<%= controller.action_name %>-container">
       <div class="row">
       <%= yield %>
       <%= render "layouts/modals" %>

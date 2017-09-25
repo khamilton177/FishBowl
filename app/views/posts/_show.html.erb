@@ -1,3 +1,5 @@
+<!-- _Show post -->
+
 <!-- Post Show Comments -->
 <p>
 <span class="post_t">Comments:</span>
@@ -12,4 +14,16 @@
 <% if @current_user %>
   <span class="post_t">Add a Comment:</span>
   <%= render "comments/comment_form" %>
+<% end %>
+
+
+!<--  -----------------------------------------------   -->
+
+<% @post.comments.each do |comment| %>
+  <blockquote>
+    <%= comment.content %>
+  </blockquote>
+  <% if @current_user && @current_user.id == comment.user_id %>
+    <%= link_to("Delete", [comment.post, comment], method: :delete, data: { confirm: 'Delete comment?' }, class: "m-3 post_links") %>
+  <% end %>
 <% end %>

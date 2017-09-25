@@ -3,20 +3,21 @@ class PostsController < ApplicationController
   before_action :user_from_nav
 
   def index
-    @posts = Post.all
+    @posts = Post.all.reverse
   end
-
-  def my_post
-    @posts=Post.where(user_id: params[:user_id])
-  end
+  #
+  # def my_post
+  #   @posts=Post.where(user_id: params[:user_id])
+  # end
 
   def posts_by_author
-    @posts=Post.where(user_id: params[:user_id])
+    @posts=Post.where(user_id: params[:user_id]).reverse
     @author = current_user && current_user.id.to_s == params[:user_id] ? "My Posts" : "#{User.find(params[:user_id]).username.capitalize}'s Posts"
   end
 
   def show
     @post=Post.find(params[:id])
+    # @comments_by_post=Comment.where(params[:id])
   end
 
   def new
@@ -57,7 +58,7 @@ class PostsController < ApplicationController
     else
       flash[:alert] = "Delete failed"
     end
-      redirect_to posts_path
+      redirect_to posts_path(@post)
   end
 
   private

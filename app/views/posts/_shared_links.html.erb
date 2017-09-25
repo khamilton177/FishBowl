@@ -1,0 +1,27 @@
+<!--  Posts _shared_links -->
+<!--  available based on user and role  -->
+
+<!-- Links only available to logged-in users.  Not shown on index views-->
+<% if @current_user && controller.action_name != "index" %>
+  <%= content_tag (:span), data: {toggle: "tooltip", placement: "top", title: "New Comment"} do %>
+    <%= link_to new_post_comment_path(post), class: "m-3 post_links", data: {remote: true, toggle: "modal", target: "#newCommentModal"} do %>
+      <i class="fa fa-comment-o" aria-hidden="true"></i>
+    <% end %>
+  <% end %>
+<% end %>
+
+<%= content_tag (:span), data: {toggle: "tooltip", placement: "top", title: "See Comment"} do %>
+  <%= link_to("#{post.comments.all.length}", "/posts/#{post.id}/comments", data: {remote: true}) %>
+<% end %>
+
+<!-- Links only available to the post author or Admin when logged-in-->
+<% if @current_user && @current_user.id == post.user_id %>
+  <%= content_tag (:span), data: {toggle: "tooltip", placement: "top", title: "Edit Post"} do %>
+    <%= link_to edit_post_path(post.id), class: "m-3 post_links", data: {remote: true, toggle: "modal", target: "#editPostModal"} do %>
+      <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+    <% end %>
+  <% end %>
+  <%= link_to post_path(post.id), method: :delete, data: { confirm: 'Are you sure you want to delete this post?' }, class: "m-3 post_links" do %>
+    <i class="fa fa-trash-o" aria-hidden="true"></i>
+  <% end %>
+<% end %>

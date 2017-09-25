@@ -14,7 +14,17 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require stickyfill.min
+//= require froala_editor.min
+// require froala_editor.pkgd.min
 //= require tether
 //= require bootstrap.min
 //= require init
 //= require_tree .
+
+$(function() {
+  $('textarea#froala-editor').froalaEditor()
+});
+
+$function pageLoad(){
+  $('[data-toggle="tooltip"]').tooltip()
+};

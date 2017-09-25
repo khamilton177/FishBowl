@@ -1,18 +1,15 @@
 
 <div class="col-sm-8 blog-main">
 
-  <!-- Display each user along with their latest post -->
-  <% @users.each do |user| %>
-    <% @post=@posts.where(user_id: user.id).last %>
-    <% if @post %>
-      <div class="blog-post">
-        <h2 class="blog-post-title"><%= @post.title %></h2>
-        <p class="blog-post-meta"><%= @post.created_at.strftime("%B %d, %Y") %> by <%= link_to("#{user.username}".capitalize, posts_by_author_path(user.id), method: :get, class: "post-user-link") %></p>
-        <blockquote>
-          <%= @post.content %>
-        </blockquote>
-      </div><!-- /.blog-post -->
-    <% end %>
+  <!-- Display each user who has posted along with their latest post -->
+  <% @posts.each do |user_latest_post| %>
+    <div class="blog-post">
+      <h2 class="blog-post-title"><%= user_latest_post.title %></h2>
+      <p class="blog-post-meta"><%= user_latest_post.created_at.strftime("%B %d, %Y") %> by <%= link_to("#{user_latest_post.user.username}".capitalize, posts_by_author_path(user_latest_post.user_id), method: :get, class: "post-user-link") %></p>
+      <blockquote>
+        <%= user_latest_post.content %>
+      </blockquote>
+    </div><!-- /.blog-post -->
   <% end %>
 
   <!-- <nav class="blog-pagination">

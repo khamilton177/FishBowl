@@ -9,7 +9,6 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @profile = Profile.where(user_id: params[:id]).first
   end
 
   def new
@@ -56,7 +55,7 @@ class UsersController < ApplicationController
       render :back
     end
   end
-  
+
   def my_post
     @posts=Post.where(params[:user_id])
   end

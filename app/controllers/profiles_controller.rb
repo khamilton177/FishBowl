@@ -7,8 +7,9 @@ class ProfilesController < ApplicationController
   end
 
   def show
-    @profile = Profile.where(user_id: params[:user_id]).first
-    @user=User.find(@profile.user_id)
+    @profile = Profile.find(params[:id])
+    # @profile = Profile.where(user_id: params[:user_id]).first
+    # @user=User.find(@profile.user_id)
   end
 
   def new

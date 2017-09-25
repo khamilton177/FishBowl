@@ -24,8 +24,12 @@ en:
 
   activerecord:
     models:
-      post: 'Post'
+      post: "Post"
+      comment: "Comment"
     attributes:
       post:
         title: "What's new?  "
-        content: 'Content:  '
+        content: "Write Post body here:  "
+
+      comment:
+        content: "Comment..."

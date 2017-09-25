@@ -1,3 +1,13 @@
 // Place all the styles related to the comment controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+// Border around HTML Editor textarea
+.fr-element .fr-view{
+  border: 2px solid #FBA04B;
+}
+
+.blog-content-bottom{
+  border-bottom: .05rem solid #eee;
+}
