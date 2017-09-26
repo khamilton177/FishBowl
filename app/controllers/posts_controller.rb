@@ -3,7 +3,7 @@ class PostsController < ApplicationController
   before_action :user_from_nav
 
   def index
-    @posts = Post.all.reverse
+    @posts = Post.order('created_at DESC').all
   end
   #
   # def my_post
