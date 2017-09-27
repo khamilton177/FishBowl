@@ -67,6 +67,27 @@
   color: #FBA04B;
 }
 
+.avatar, .commenter-avatar, .permalink-header .avatar {
+  float: left;
+  margin-top: 3px;
+  margin-left: -58px;
+}
+
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  -moz-force-broken-image-icon: 1;
+}
+
+// twitter_core.bundle.css:1
+.commenter-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  -moz-force-broken-image-icon: 1;
+}
+
 // // Extra small devices (portrait phones, less than 576px)
 // // No media query since this is the default in Bootstrap
 //

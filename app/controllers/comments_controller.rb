@@ -3,10 +3,11 @@ class CommentsController < ApplicationController
   before_action :user_from_nav
 
   def index
-    @comments=Comment.all
+    # @comments=Comment.all
     # @post = Post.find(params[:post_id])
     # @comments=@post.comments.all
-    # @comments_by_post=Comment.where(params[:post_id])
+    @comments=Comment.where(params[:post_id])
+    render
   end
 
   def new
@@ -31,15 +32,27 @@ class CommentsController < ApplicationController
     end
   end
 
+  def update
+    @post = Post.find(params[:post_id])
+    @comment=@post.comments.update(comment_params)
+     if @comment.update(comment_params)
+       flash[:notice] = "Update successful"
+       redirect_to post_path(@post)
+     else
+       flash[:alert] = "Update failed"
+       render "edit"
+     end
+  end
+
   def destroy
     @post = Post.find(params[:post_id])
     @comment=@post.comments.find(params[:id])
     if @current_user
-      if @current_user.id == @comment.user_id || @current_user.id == @Post.user_id
+      if @current_user.id == @comment.user_id || @current_user.id == @Post.user_id || @current_user.admin == true
         @comment.destroy
         redirect_to post_path(@post)
       else
-        flash[:alert] = "Not authoried to delete"
+        flash[:alert] = "Not authorized to delete"
         render :back
       end
     else

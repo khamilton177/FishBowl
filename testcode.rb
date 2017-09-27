@@ -26,10 +26,18 @@
 # # puts utest.posts.last.id
 # puts utest.posts.latest_post
 
-posts = Post.order('updated_at DESC').all
+# posts = Post.order('updated_at DESC').all
+#
+# posts.each do |post|
+#   if post.user.posts.last
+#     puts post.user.posts.last.title
+#   end
+# end
 
-posts.each do |post|
-  if post.user.posts.last
-    puts post.user.posts.last.title
-  end
+post=Post.find(11)
+
+post.comments.each do |comment|
+  puts comment.user.profile.avatar.url(:thumb)
+  puts comment.created_at
+  puts comment.content
 end

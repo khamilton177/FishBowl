@@ -63,6 +63,20 @@ class PostsController < ApplicationController
 
   private
 
+  # def generate_class
+  #   comments-css= [
+  #       "shade",
+  #       "no-shade",
+  #     ];
+  #
+  #   comments-element=[]
+  #   cnt=Flavor.all.length
+  #   comments-css.cycle(cnt) do |c|
+  #     comments-element.push(c)
+  #     @cnt=1
+  #   end
+  # end
+
   def post_params
     params.require(:post).permit(:title, :content, :user_id)
   end

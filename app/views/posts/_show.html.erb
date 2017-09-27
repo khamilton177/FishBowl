@@ -17,13 +17,20 @@
 <% end %>
 
 
-!<--  -----------------------------------------------   -->
+<!--  -----------------------------------------------   -->
 
 <% @post.comments.each do |comment| %>
   <blockquote>
     <%= comment.content %>
   </blockquote>
   <% if @current_user && @current_user.id == comment.user_id %>
-    <%= link_to("Delete", [comment.post, comment], method: :delete, data: { confirm: 'Delete comment?' }, class: "m-3 post_links") %>
+    <%= content_tag (:span), data: {toggle: "tooltip", placement: "top", title: "Edit Post"} do %>
+      <%= link_to edit_post_path(@post.id), class: "m-3 post_links", data: {remote: true, toggle: "modal", target: "#editPostModal"} do %>
+        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+      <% end %>
+    <% end %>
+    <%= link_to("Delete", [comment.post, comment], method: :delete, data: { confirm: 'Delete comment?' }, class: "m-3 post_links")  do %>
+      <i class="fa fa-trash-o" aria-hidden="true"></i>
+    <% end %>
   <% end %>
 <% end %>

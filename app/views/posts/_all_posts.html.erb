@@ -17,8 +17,13 @@
         <% end %>
       <% end %>
     <% end %>
-    <%= content_tag (:span), data: {toggle: "tooltip", placement: "top", title: "See Comment"} do %>
+    <%= content_tag (:span), data: {toggle: "tooltip", placement: "top", title: "See Comment Good"} do %>
       <%= link_to("#{post.comments.all.length}", "/posts/#{post.id}/comments", data: {remote: true}) %>
+    <% end %>
+    <%= link_to( "", data: {toggle: "tooltip", placement: "top", title: "See Comments Try"}) do %>
+      <span id="show-comments-link" data-toggleClass="hide-comments" data-target=".post-comments">
+        <%= post.comments.all.length %>
+      </span>
     <% end %>
     <% if @current_user && (@current_user.id == post.user_id || @current_user.admin) %>
       <%= content_tag (:span), data: {toggle: "tooltip", placement: "top", title: "Edit Post"} do %>

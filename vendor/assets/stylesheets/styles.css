@@ -109,23 +109,23 @@ h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6{
   background-color: white;
 }
 
-/*a:focus, a:hover {
+a:focus, a:hover {
     color: #4C6663;
     text-decoration: none;
 }
 
-.lay_page_title:focus, .lay_page_title:hover, .layBtn:focus, .layBtn:hover {
+/*.lay_page_title:focus, .lay_page_title:hover, .layBtn:focus, .layBtn:hover {
     color: #FBA04B;
     text-decoration: none;
 }
 
 .navbar-inverse .navbar-brand, .navbar-inverse .navbar-toggler{
   color: #FBA04B;
-}*/
+}
 
 .sub-dropdown, .sub-dropup {
     position: relative;
-}
+}*/
 
 
 /*p {
