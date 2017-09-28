@@ -10,31 +10,52 @@
       <%= post.content %>
     </blockquote>
     <p>
-    <% if @current_user %>
-      <%= content_tag (:span), data: {toggle: "tooltip", placement: "top", title: "New Comment"} do %>
-        <%= link_to new_post_comment_path(post), class: "m-3 post_links", data: {remote: true, toggle: "modal", target: "#newCommentModal"} do %>
-          <i class="fa fa-comment-o" aria-hidden="true"></i>
+      <% if @current_user %>
+        <%= content_tag (:span), data: {toggle: "tooltip", placement: "top", title: "New Comment"} do %>
+          <%= link_to new_post_comment_path(post), class: "m-3 post_links", data: {remote: true, toggle: "modal", target: "#newCommentModal"} do %>
+            <i class="fa fa-comment-o" aria-hidden="true"></i>
+          <% end %>
         <% end %>
       <% end %>
-    <% end %>
-    <%= content_tag (:span), data: {toggle: "tooltip", placement: "top", title: "See Comment Good"} do %>
-      <%= link_to("#{post.comments.all.length}", "/posts/#{post.id}/comments", data: {remote: true}) %>
-    <% end %>
-    <%= link_to( "", data: {toggle: "tooltip", placement: "top", title: "See Comments Try"}) do %>
-      <span id="show-comments-link" data-toggleClass="hide-comments" data-target=".post-comments">
-        <%= post.comments.all.length %>
-      </span>
-    <% end %>
-    <% if @current_user && (@current_user.id == post.user_id || @current_user.admin) %>
-      <%= content_tag (:span), data: {toggle: "tooltip", placement: "top", title: "Edit Post"} do %>
-        <%= link_to edit_post_path(post.id), class: "m-3 post_links", data: {remote: true, toggle: "modal", target: "#editPostModal"} do %>
-          <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+      <%= content_tag (:span), data: {toggle: "tooltip", placement: "top", title: "See Comments"} do %>
+        <%= link_to "#comment_div_#{post.id}", id: "show-comments-link", data: {toggle: "collapse"} do %>
+          <%= post.comments.all.length %>
         <% end %>
       <% end %>
-      <%= link_to post_path(post.id), method: :delete, data: { confirm: 'Are you sure you want to delete this post?' }, class: "m-3 post_links" do %>
-        <i class="fa fa-trash-o" aria-hidden="true"></i>
+      <% if @current_user && (@current_user.id == post.user_id || @current_user.admin) %>
+        <%= content_tag (:span), data: {toggle: "tooltip", placement: "top", title: "Edit Post"} do %>
+          <%= link_to edit_post_path(post.id), class: "m-3 post_links", data: {remote: true, toggle: "modal", target: "#editPostModal"} do %>
+            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+          <% end %>
+        <% end %>
+        <%= link_to post_path(post.id), method: :delete, data: { confirm: 'Are you sure you want to delete this post?' }, class: "m-3 post_links" do %>
+          <i class="fa fa-trash-o" aria-hidden="true"></i>
+        <% end %>
       <% end %>
-    <% end %>
     </p>
+    <div id="comment_div_<%= post.id %>" class="post-comments-div collapse">
+      <% post.comments.each do |comment| %>
+        <%= image_tag comment.user.profile.avatar.url(:thumb), class: "commenter-avatar js-action-profile-avatar" %>
+        <span><%= link_to("#{comment.user.username.capitalize}", posts_by_author_path(comment.user_id), method: :get, class: "post-user-link") %></span>
+        <p class="blog-post-meta"><%= comment.created_at.strftime("%b %d '%y %I:%M %p") %></p>
+        <section  class="post-comments-section">
+          <blockquote class="post-comments-quote">
+            <%= comment.content %>
+          </blockquote>
+          <p>
+            <% if @current_user && (@current_user.id == comment.user_id || @current_user.admin) %>
+              <%= content_tag (:span), data: {toggle: "tooltip", placement: "top", title: "Edit Comment"} do %>
+                <%= link_to edit_post_comment_path(comment.post, comment), class: "m-3 post_links", data: {remote: true, toggle: "modal", target: "#editCommentModal"} do %>
+                  <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                <% end %>
+              <% end %>
+              <%= link_to post_comment_path(comment.post, comment), method: :delete, data: { confirm: 'Delete comment?' }, class: "m-3 post_links" do %>
+               <i class="fa fa-trash-o" aria-hidden="true"></i>
+              <% end %>
+            <% end %>
+          </p>
+      </section>
+      <% end %>
+    </div>
   </div><!-- /.blog-post -->
 <% end %>

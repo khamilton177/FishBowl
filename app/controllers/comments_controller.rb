@@ -3,11 +3,7 @@ class CommentsController < ApplicationController
   before_action :user_from_nav
 
   def index
-    # @comments=Comment.all
-    # @post = Post.find(params[:post_id])
-    # @comments=@post.comments.all
     @comments=Comment.where(params[:post_id])
-    render
   end
 
   def new
@@ -16,8 +12,12 @@ class CommentsController < ApplicationController
   end
 
   def edit
-    # @post = Post.find(params[:post_id])
-    @comment=Comment.find(params[:id])
+    @post = Post.find(params[:post_id])
+    @comment=@post.comments.find(params[:id])
+    respond_to do |format|
+      format.js { render "edit" }
+      format.html { render "comments/_comment_form" }
+    end
   end
 
   def create
@@ -38,7 +38,8 @@ class CommentsController < ApplicationController
   end
 
   def update
-    @comment=Comment.find(params[:id])
+    @post=Post.find(params[:post_id])
+    @comment=@post.comments.find(params[:id])
      if @comment.update(comment_params)
        flash[:notice] = "Update successful"
        redirect_to post_path(@comment.post_id)

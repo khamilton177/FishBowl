@@ -15,7 +15,7 @@
           <% end %>
         <% end %>
       <% end %>
-      <%= content_tag (:span), data: {toggle: "tooltip", placement: "top", title: "See Comment"} do %>
+      <%= content_tag (:span), data: {toggle: "tooltip", placement: "top", title: "See Comments"} do %>
         <%= link_to "#comment_div_#{@post.id}", id: "show-comments-link", data: {toggle: "collapse"} do %>
           <%= @post.comments.all.length %>
         <% end %>

@@ -1,4 +1,6 @@
+<!--  _comment_form -->
 
+<%= form_for [@post, @comment], remote: true, authenticity_token: true do |comment_f| %>
   <div class="form-group">
     <%= comment_f.label :content, class: "post-label" %>
     <%= comment_f.text_area :content, class: "form-control" %>
@@ -7,3 +9,4 @@
     <%= comment_f.submit "Save", class: "btn btn-primary" %>
     <a href="" class="btn btn-secondary" data-dismiss="modal">Back</a>
   </div>
+<% end %>
