@@ -15,6 +15,11 @@ class CommentsController < ApplicationController
     @comment=@post.comments.build
   end
 
+  def edit
+    # @post = Post.find(params[:post_id])
+    @comment=Comment.find(params[:id])
+  end
+
   def create
     @post = Post.find(params[:post_id])
     @comment=@post.comments.create(comment_params)
@@ -33,11 +38,10 @@ class CommentsController < ApplicationController
   end
 
   def update
-    @post = Post.find(params[:post_id])
-    @comment=@post.comments.update(comment_params)
+    @comment=Comment.find(params[:id])
      if @comment.update(comment_params)
        flash[:notice] = "Update successful"
-       redirect_to post_path(@post)
+       redirect_to post_path(@comment.post_id)
      else
        flash[:alert] = "Update failed"
        render "edit"

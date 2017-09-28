@@ -15,10 +15,10 @@
           <% end %>
         <% end %>
       <% end %>
-      <%= link_to("", data: {toggle: "tooltip", placement: "top", title: "See Comments"}) do %>
-        <span id="show-comments-link" data-toggleClass="hide-comments" data-target=".post-comments">
+      <%= content_tag (:span), data: {toggle: "tooltip", placement: "top", title: "See Comment"} do %>
+        <%= link_to "#comment_div_#{@post.id}", id: "show-comments-link", data: {toggle: "collapse"} do %>
           <%= @post.comments.all.length %>
-        </span>
+        <% end %>
       <% end %>
       <% if @current_user && @current_user.id == @post.user_id || @current_user.admin %>
         <%= content_tag (:span), data: {toggle: "tooltip", placement: "top", title: "Edit Post"} do %>
@@ -32,18 +32,28 @@
       <% end %>
       <%= link_to("Back", :back, class: "m-3 post_links") %>
     </p>
-    <div class="post-comments hide-comments">
+    <div id="comment_div_<%= @post.id %>" class="post-comments-div collapse">
       <% @post.comments.each do |comment| %>
         <%= image_tag comment.user.profile.avatar.url(:thumb), class: "commenter-avatar js-action-profile-avatar" %>
-        <p class="blog-post-meta"><%= comment.created_at.strftime("%B %d, %Y") %></p>
-        <blockquote>
-          <%= comment.content %>
-        </blockquote>
-        <p class="">
-          <% if @current_user && @current_user.id == comment.user_id %>
-            <%= link_to("Delete", [comment.post, comment], method: :delete, data: { confirm: 'Delete comment?' }, class: "m-3 post_links") %>
-          <% end %>
-        </p>
+        <span><%= link_to("#{comment.user.username.capitalize}", posts_by_author_path(comment.user_id), method: :get, class: "post-user-link") %></span>
+        <p class="blog-post-meta"><%= comment.created_at.strftime("%b %d '%y %I:%M %p") %></p>
+        <section  class="post-comments-section">
+          <blockquote class="post-comments-quote">
+            <%= comment.content %>
+          </blockquote>
+          <p>
+            <% if @current_user && (@current_user.id == comment.user_id || @current_user.admin) %>
+              <%= content_tag (:span), data: {toggle: "tooltip", placement: "top", title: "Edit Comment"} do %>
+                <%= link_to edit_post_comment_path(comment.post, comment), class: "m-3 post_links", data: {remote: true, toggle: "modal", target: "#editCommentModal"} do %>
+                  <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                <% end %>
+              <% end %>
+              <%= link_to post_comment_path(comment.post, comment), method: :delete, data: { confirm: 'Delete comment?' }, class: "m-3 post_links" do %>
+               <i class="fa fa-trash-o" aria-hidden="true"></i>
+              <% end %>
+            <% end %>
+          </p>
+      </section>
       <% end %>
     </div>
   </div><!-- /.blog-post -->

@@ -25,10 +25,6 @@ $(function() {
   $('textarea#froala-editor').froalaEditor()
 });
 
-$( "#show-comments-link" ).click(function() {
-  $( "p.post-comments" ).toggleClass( "hide-comments" );
-});
-
 $function pageLoad(){
   $('[data-toggle="tooltip"]').tooltip()
 };

@@ -44,11 +44,22 @@
 }
 
 
-.post-comments{
+.post-comments-div{
+  // display: none;
   height: 100%;
   border-radius: .25rem;
   background-color: white;
+  padding: 1rem;
   // background: linear-gradient(180deg, #FFC0CB 50%, #00FFFF 50%);
+}
+
+.post-comments-section{
+  background-color: #e6ecf0;
+}
+
+.post-comments-quote{
+  padding-top: 0.25rem;
+  padding-left: 1rem;
 }
 
 .hide-comments{
