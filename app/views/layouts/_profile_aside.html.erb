@@ -1,24 +1,18 @@
-<div class="col-sm-3 offset-sm-1 blog-sidebar">
-  <div class="sidebar-module sidebar-module-inset">
-    <h4>About</h4>
-    <p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
+<div class="col-sm-4">
+  <div class="card sidebar-module sidebar-module-inset profile-card-cap">
+  <!-- <div class="card" style="width: 20rem;"> -->
+    <div class="card-img-top"></div>
+    <div class="avatar-div"><%= image_tag @user.profile.avatar.url(:thumb), class: "avatar js-action-profile-avatar" %></div>
+    <span><%= link_to("#{@user.username.capitalize}", posts_by_author_path(@user.id), method: :get, class: "post-user-link") %></span>
   </div>
+  <div class="card-body">
+    <h4 class="card-title">Card title</h4>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+
   <div class="sidebar-module">
-    <h4>Archives</h4>
-    <ol class="list-unstyled">
-      <li><a href="#">March 2014</a></li>
-      <li><a href="#">February 2014</a></li>
-      <li><a href="#">January 2014</a></li>
-      <li><a href="#">December 2013</a></li>
-      <li><a href="#">November 2013</a></li>
-      <li><a href="#">October 2013</a></li>
-      <li><a href="#">September 2013</a></li>
-      <li><a href="#">August 2013</a></li>
-      <li><a href="#">July 2013</a></li>
-      <li><a href="#">June 2013</a></li>
-      <li><a href="#">May 2013</a></li>
-      <li><a href="#">April 2013</a></li>
-    </ol>
+    <!-- put something here -->
   </div>
   <div class="sidebar-module">
     <h4>Elsewhere</h4>
@@ -28,4 +22,10 @@
       <li><a href="#">Facebook</a></li>
     </ol>
   </div>
-</div> <!-- /.blog-sidebar -->
+</div> <!-- /.profile-aside -->
+
+
+<!-- <div class="dropdown-caret">
+  <span class="caret-outer">here</span>
+  <span class="caret-inner">there</span>
+</div> -->

@@ -72,18 +72,59 @@
 }
 
 .avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  -moz-force-broken-image-icon: 1;
+  align-self: center;
+}
+
+.avatar-div {
+  display: flex;
+  cursor: pointer;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: #FFF;
+  justify-content: center;
+  align-self: center;
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  -o-transform: scale(1);
+  transform: scale(1);
+}
+
+.avatar-div:hover{
+  background-color: #FFF;
+  -webkit-transform: scale(1.2);
+  -moz-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  -o-transform: scale(1.2);
+  transform: scale(1.2);
+}
+
+.commenter-avatar {
   width: 32px;
   height: 32px;
   border-radius: 50%;
   -moz-force-broken-image-icon: 1;
 }
 
-// twitter_core.bundle.css:1
-.commenter-avatar {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  -moz-force-broken-image-icon: 1;
+.profile-card-cap{
+  background: linear-gradient(180deg, #4C6663 50%, #FFF 50%);
+}
+
+.dropdown-caret{
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    margin-left: -9px;
+    right: 10px;
+    width: 18px;
+    height: 10px;
+    float: left;
+    overflow: hidden;
 }
 
 // // Extra small devices (portrait phones, less than 576px)
