@@ -8,9 +8,8 @@ class HomeController < ApplicationController
     users.each do |user|
 
       # Only want to capture users with post and ONLY last post.
-      if user.posts.last
-        posts << user.posts.last
-      end
+      posts << user.posts.last if user.posts.last
+
     end
 
     # Sorting post by id on array in DESC order.

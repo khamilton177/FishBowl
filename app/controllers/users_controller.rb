@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :current_user
+  before_action :user_authenticated, except: [:new, :create]
   before_action :user_from_nav
   skip_before_action :user_from_nav, only: [:new, :create]
 
@@ -9,6 +10,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @profile = Profile.find_by(user_id: @user.id)
   end
 
   def new
@@ -37,7 +39,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
      if @user.update(user_params)
        flash[:notice] = "Update successful"
-       redirect_to user_path(@user)
+       redirect_to profile_path(@user.profile.id)
      else
        flash[:alert] = "Update failed"
        render :edit
@@ -56,13 +58,22 @@ class UsersController < ApplicationController
     end
   end
 
-  def my_post
-    @posts=Post.where(params[:user_id])
-  end
-
   private
+  def user_authenticated
+    logger.debug ("*** Checking Authenticated User STATUS ***")
+    unless session[:user_id]
+      flash[:notice] = "Please login."
+      redirect_to root_path
+    end
+
+    if @current_user && @current_user.id.to_s != params[:id].to_s
+      flash[:alert] = "You do not have access to the requested page."
+      redirect_back(fallback_location: root_path)
+    end
+  end
 
   def user_params
     params.require(:user).permit(:username, :password)
   end
+
 end

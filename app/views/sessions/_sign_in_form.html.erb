@@ -1,19 +1,12 @@
 <%= form_tag "/sign_in", method: :post do %>
   <div class="LoginForm-input LoginForm-username">
-    <input type="text" name="username" placeholder="Username" class="sign" data-required="required" value="">
+    <%= label_tag(:username) %>
+    <%= text_field_tag(:username, params[:username], class: "sign", data: {required: "required"}) %>
   </div>
 
   <div class="LoginForm-input LoginForm-password">
-    <input type="password" name="password" placeholder="Password" class="sign" data-required="required" value="">
-  </div>
-
-  <div class="LoginForm-rememberForgot">
-    <label>
-      <input type="checkbox" value="1" name="remember_me" checked="checked">
-      <span>Remember me</span>
-    </label>
-    <span class="separator">·</span>
-    <a class="forgot" href="/account/begin_password_reset" rel="noopener">Forgot password?</a>
+    <%= label_tag(:password) %>
+    <%= password_field_tag(:password, params[:password], class: "sign", data: {required: "required"}) %>
   </div>
 
   <%= submit_tag "Go", class: "laySignBtn" %>

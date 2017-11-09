@@ -7,20 +7,14 @@ Rails.application.routes.draw do
   delete "/sign_out" => "sessions#sign_out", as: "sign_out"
 
   resources :users
+
   resources :profiles
-  # resource :profile
+  get "/profiles/:id" => "profiles#upload_avatar", as: "upload_avatar"
 
   resources :posts do
     resources :comments
   end
-
- get "/posts/:user_id/posts" => "posts#posts_by_author", as: "posts_by_author"
-
-  # # get 'profiles/index'
-  # #
-  # # get 'profile', to: :index, :show, controller: 'profiles'
-  # get 'profile', to: :new, :update, controller: 'users'
-  # post 'profile', to: :create, controller: 'users'
+  get "/posts/:user_id/posts" => "posts#posts_by_author", as: "posts_by_author"
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

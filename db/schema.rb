@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170922173528) do
+ActiveRecord::Schema.define(version: 20171102015331) do
 
   create_table "comments", force: :cascade do |t|
     t.text     "content"
@@ -47,10 +47,10 @@ ActiveRecord::Schema.define(version: 20170922173528) do
 
   create_table "users", force: :cascade do |t|
     t.string   "username"
-    t.string   "password",   limit: 16
-    t.datetime "created_at",                            null: false
-    t.datetime "updated_at",                            null: false
-    t.boolean  "admin",                 default: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.boolean  "admin",           default: false
+    t.string   "password_digest"
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 

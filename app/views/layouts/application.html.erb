@@ -23,8 +23,6 @@
     </div>
 
     <header class="<%= controller.controller_name %>-<%= controller.action_name %>-header">
-    <!-- <header class="lay-header"> -->
-
       <% if flash[:notice] %>
         <div id="notice">
           <%= flash[:notice] %>
@@ -47,26 +45,25 @@
     <div class="container <%= controller.controller_name %>-container <%= controller.controller_name %>-<%= controller.action_name %>-container">
       <div class="row">
 
-      <% if controller_name == "users" || controller_name == "profiles" %>
-        <%= render "layouts/profile_aside" %>
-      <% end %>
+        <% if controller.controller_name == "users" || controller.controller_name == "profiles" %>
+          <%= render "layouts/profile_aside" %>
+        <% end %>
 
-      <%= yield %>
-      <%= render "layouts/modals" %>
+        <%= yield %>
+        <%= render "layouts/modals" %>
 
-      <% if controller.controller_name == "home" || controller.controller_name == "posts" || controller.controller_name == "comments" %>
-        <%= render "layouts/sidebar" %>
-      <% end %>
+        <% if controller.controller_name == "home" || controller.controller_name == "posts" || controller.controller_name == "comments" %>
+          <%= render "layouts/sidebar" %>
+        <% end %>
 
-      </div><!-- /.row -->
-    </div><!-- /.container -->
+      </div> <!-- /.row -->
+    </div> <!-- /.container -->
 
     <footer class="blog-footer">
       <p>
         <a href="#">Back to top</a>
       </p>
     </footer>
-
+    <!-- <script type="text/javascript" src="js/bootstrap-filestyle.min.js"> </script> -->
   </body>
-
 </html>

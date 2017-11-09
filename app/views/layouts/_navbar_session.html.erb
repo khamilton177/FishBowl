@@ -14,7 +14,9 @@
        <small>Logged in as</small> <span class="emphasize"><%= current_user.username.capitalize %></span><span class="caret"></span>
     </a>
     <div class="dropdown-menu dropdown-menu-right">
-      <%= link_to("Profile", user_path(@current_user), method: :get, class: "dropdown-item lay_drop_lnks") %>
+      <% if @current_user.profile %>
+        <%= link_to("Profile", profile_path(@current_user.profile.id), method: :get, class: "dropdown-item lay_drop_lnks") %>
+      <% end %>
       <%= link_to("My Post", posts_by_author_path(@current_user.id), method: :get, class: "dropdown-item lay_drop_lnks") %>
       <%= link_to("New Post", new_post_path, method: :get, class: "dropdown-item lay_drop_lnks") %>
         <a class="sub-dropdown dropdown-item lay_drop_lnks dropdown-toggle" data-toggle="sub-dropdown" href="#" aria-haspopup="true" aria-expanded="false">

@@ -1,5 +1,6 @@
 <!-- users/show.html.erb -->
 <!-- <div class="col-sm-8 blog-main"> -->
+
 <div class="col-sm-6 offset-sm-2 blog-main">
 
   <p><span class="post_t">Username: </span><%=@user.username %></p>
@@ -10,12 +11,6 @@
   <BR>
   <p><span class="post_t">First Name:  </span><%=@user.profile.fname %></p>
   <p><span class="post_t">Last Name:  </span><%=@user.profile.lname %></p>
-  <BR>
-  <p>Your pic:
-    <% if @user.profile.avatar? %>
-        <%= image_tag @user.profile.avatar.url(:thumb) %>
-    <% end %>
-  </p>
   <BR>
   <span class="post_t">A little about me: </span>
   <p class="post"> <%= @user.profile.about %></p>

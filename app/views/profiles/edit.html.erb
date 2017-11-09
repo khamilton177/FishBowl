@@ -22,12 +22,7 @@
     <p>
       DOB:  <%= form.date_field :dob, placeholder: "DOB: MM/DD/YYYY", class: "form" %>
     </p>
-    <p>
-      <% if @profile.avatar? %>
-        <%= image_tag @profile.avatar.url(:thumb) %>
-      <% end %>
-      <%= form.file_field :avatar, class: "form" %>
-    </p>
+
     <p>A little about me:</p>
     <p>
       <%= form.text_area :about, placeholder: "About me", class: "form f_text_area" %>

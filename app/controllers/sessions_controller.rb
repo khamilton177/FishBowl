@@ -6,15 +6,18 @@ class SessionsController < ApplicationController
   end
 
   def sign_in
-    @user = User.find_by(username: params[:username])
+    if params[:username].present? && params[:password].present?
+      user = User.find_by(username: params[:username])
+      authenticated_user = user.authenticate(params[:password]) if user
+    end
 
-    if @user && @user.password == params[:password]
-      session[:user_id] = @user.id
-      flash[:notice] = "You have signed in successfully"
+    if authenticated_user
+      session[:user_id] = authenticated_user.id
+      flash[:notice] = "You have signed in successfully."
       redirect_to root_path
     else
-      flash[:alert] = "Invalid username/password combination"
-      redirect_to :back
+      flash[:alert] = "Invalid username/password combination."
+      redirect_back(fallback_location: root_path)
     end
   end
 

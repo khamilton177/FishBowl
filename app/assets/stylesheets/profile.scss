@@ -1,3 +1,52 @@
 // Place all the styles related to the profile controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.avatar-form-div > form{
+  display: flex;
+  flex-direction: column;
+  width: 125px;
+  height: 125px;
+}
+
+ .edit_profile > hr{
+   position: relative;
+   top: 0px;
+ }
+
+.avatar-file-div{
+  position: fixed;
+  width: 125px;
+  height: 125px;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.avatar-file{
+  position: absolute;
+  width: 125px;
+  height: 25px;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.avatar-drop-link{
+  color: #4C6663 !important;
+  position: absolute;
+  align-self: center;
+  top: 0px;
+  // left: 75px;
+}
+
+.avatar-drop-div{
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  top: 0;
+}
+
+.avatar-file-btn{
+  position: relative;
+  top: 50px;
+}

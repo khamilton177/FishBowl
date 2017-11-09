@@ -1,0 +1,8 @@
+<%= form_for @profile, url: upload_avatar_path, method: :patch, html: {multipart: true} do |avatar_f| %>
+  <div class="avatar-file-div">
+    <%= avatar_f.label(:avatar, "Click to add file", class: "btn btn-secondary avatar-file") %>
+    <%= avatar_f.file_field :avatar, class: "avatar-file", required: true %>
+  </div>
+  <!-- <hr> -->
+  <%= avatar_f.submit "Apply", class: "avatar-file-btn laySignBtn" %>
+<% end %>

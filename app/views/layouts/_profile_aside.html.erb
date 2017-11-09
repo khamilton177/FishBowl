@@ -1,31 +1,30 @@
+<!--  profile_aside -->
 <div class="col-sm-4">
+  <% if @current_user.profile %>
+
   <div class="card sidebar-module sidebar-module-inset profile-card-cap">
   <!-- <div class="card" style="width: 20rem;"> -->
     <div class="card-img-top"></div>
-    <div class="avatar-div"><%= image_tag @user.profile.avatar.url(:thumb), class: "avatar js-action-profile-avatar" %></div>
+    <div class="avatar-div">
+      <!-- Will show preview image when a new image is selected -->
+      <img class="avatar-preview">
+      <!--  Stored profile image -->
+      <%= image_tag @user.profile.avatar.url(:thumb), class: "avatar js-action-profile-avatar" %>
+    </div>
+    <div class="dropdown avatar-drop-div">
+      <a class="avatar-drop-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+         <span class="caret"></span>
+      </a>
+      <div class="dropdown-menu">
+        <div class="dropdown-item avatar-form-div">
+
+            <%= render "profiles/upload_avatar" %>
+
+        </div>
+      </div>
+    </div>
     <span><%= link_to("#{@user.username.capitalize}", posts_by_author_path(@user.id), method: :get, class: "post-user-link") %></span>
   </div>
-  <div class="card-body">
-    <h4 class="card-title">Card title</h4>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
+  <% end %>
 
-  <div class="sidebar-module">
-    <!-- put something here -->
-  </div>
-  <div class="sidebar-module">
-    <h4>Elsewhere</h4>
-    <ol class="list-unstyled">
-      <li><a href="#">GitHub</a></li>
-      <li><a href="#">Twitter</a></li>
-      <li><a href="#">Facebook</a></li>
-    </ol>
-  </div>
 </div> <!-- /.profile-aside -->
-
-
-<!-- <div class="dropdown-caret">
-  <span class="caret-outer">here</span>
-  <span class="caret-inner">there</span>
-</div> -->
