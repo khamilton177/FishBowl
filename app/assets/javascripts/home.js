@@ -11,5 +11,4 @@ document.addEventListener("DOMContentLoaded", function(){
         Stickyfill.add(stickyElements[i]);
     }
   }
-
 })

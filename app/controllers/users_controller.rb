@@ -66,7 +66,7 @@ class UsersController < ApplicationController
       redirect_to root_path
     end
 
-    if @current_user && @current_user.id.to_s != params[:id].to_s
+    if current_user && current_user.id.to_s != params[:id].to_s
       flash[:alert] = "You do not have access to the requested page."
       redirect_back(fallback_location: root_path)
     end

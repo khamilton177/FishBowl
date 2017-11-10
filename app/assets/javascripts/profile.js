@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function(){
   function handleFileSelect(evt) {
     console.log ("DOING CHANGE EVENT");
     var file = evt.target.files; // FileList object
-      f=file[0]
+      f=file[0];
       // Only process image files.
       if (f.type.match('image.*')) {
         var reader = new FileReader();
@@ -26,7 +26,6 @@ document.addEventListener("DOMContentLoaded", function(){
 
   if (avatarPic != null || avatarPic !== undefined){
     console.log ("I'm Here!!!");
-
     avatarPic.addEventListener("change", handleFileSelect, false);
   }
 })

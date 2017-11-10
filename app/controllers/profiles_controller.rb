@@ -19,10 +19,9 @@ class ProfilesController < ApplicationController
   end
 
   def create
-    puts params.inspect
-    puts "Current USer- #{@current_user.id}"
+    # puts params.inspect
     @profile=Profile.new(profile_params)
-    @profile.user_id=@current_user.id
+    @profile.user_id=current_user.id
     if @profile.save
       flash[:notice] = "Saved"
       redirect_to user_path(@profile.user_id)
@@ -85,7 +84,7 @@ class ProfilesController < ApplicationController
       redirect_to root_path
     end
 
-    if @current_user && @current_user.profile.id.to_s != params[:id].to_s
+    if current_user && current_user.profile.id.to_s != params[:id].to_s
       flash[:alert] = "You do not have access to the requested page."
       redirect_back(fallback_location: root_path)
     end

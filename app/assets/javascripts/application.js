@@ -29,3 +29,10 @@
 $(function pageLoad(){
     $('[data-toggle="tooltip"]').tooltip()
 });
+
+
+if ($('.dropdown-menu').length){
+  $('.dropdown-menu').click(function(event){
+      event.stopPropagation();
+  });
+}
