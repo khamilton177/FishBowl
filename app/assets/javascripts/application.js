@@ -27,12 +27,21 @@
 // });
 
 $(function pageLoad(){
-    $('[data-toggle="tooltip"]').tooltip()
+  $('[data-toggle="tooltip"]').tooltip()
+
+  if ($(".dropdown-menu").length){
+  //   // $(".dropdown-menu").click(function(event){
+  //   $(".dropdown a.dropdown-toggle").click(function(event){
+  //     console.log("I see main the click");
+  //     event.stopPropagation();
+  //   });
+
+    $(".dropdown a.dropdown-toggle").click(function(event){
+      var $parent = $(this).offsetParent(".dropdown-menu");
+      $(this).parent("li, div").toggleClass("show");
+      console.log("I see the click");
+      $(".dropdown li.show").not( $(this).parents("li, div")).removeClass("show") ;
+      return false;
+    });
+  }
 });
-
-
-if ($('.dropdown-menu').length){
-  $('.dropdown-menu').click(function(event){
-      event.stopPropagation();
-  });
-}
