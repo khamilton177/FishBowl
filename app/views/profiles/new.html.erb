@@ -1,35 +1,9 @@
 <!-- Profiles new -->
 
 <div class="col-sm-8 blog-main">
-  <%= form_for @profile, url: {action: "create"}, html: {multipart: true} do |form| %>
-    <% if @profile.errors.full_messages.any? %>
-    <ul>
-      <% @profile.errors.full_messages.each do |error_message| %>
-      <li>
-        <%= error_message %>
-      </li>
-      <br>
-      <% end %>
-    </ul>
-    <% end %>
-    <p>
-      Email:  <%= form.email_field :email, placeholder: "you@somewhere.com", class: "prof_f" %>
-    </p>
-    <span>
-      First Name:  <%= form.text_field :fname, placeholder: "First Name", class: "prof_f" %>
-    </span>
-    <span>
-      Last Name:  <%= form.text_field :lname, placeholder: "Last Name", class: "prof_f" %>
-    </span>
-    <p>
-      <%= form.date_field :dob, placeholder: "DOB: MM/DD/YYYY", class: "prof_f" %>
-    </p>
-      <%= form.file_field :avatar, class: "prof_f" %>
-    <p>A little about me:</p>
-    <p>
-      <%= form.text_area :about, placeholder: "About me", class: "prof_f f_text_area" %>
-    </p>
-    <%= form.submit "Save", class: "save_f" %>
+  <%= form_for @profile, url: {action: "create"}, html: {multipart: true} do |f| %>
+    <%= render(partial: "profile_form", locals: {f: f}) %>
+    <%= f.submit "Save", class: "save_f" %>
   <% end %>
   <BR>
 </div> <!-- /.blog-main -->

@@ -1,6 +1,6 @@
 class ProfilesController < ApplicationController
   before_action :current_user
-  before_action :user_authenticated
+  before_action :user_authenticated, except: [:new, :create]
   before_action :user_from_nav
   before_action :find_profile_for_avatar, only: [:upload_avatar, :remove_avatar]
 

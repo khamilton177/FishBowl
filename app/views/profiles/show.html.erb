@@ -2,19 +2,9 @@
 <!-- <div class="col-sm-8 blog-main"> -->
 
 <div class="col-sm-6 offset-sm-2 blog-main">
-
-  <p><span class="post_t">Username: </span><%=@profile.user.username %></p>
-  <BR>
-  <p><span class="post_t">Password: ********** </span></p>
-  <BR>
-    <p><span class="post_t">Email:   </span><%=@profile.email %></p>
-  <BR>
-  <p><span class="post_t">First Name:  </span><%=@profile.fname %></p>
-  <p><span class="post_t">Last Name:  </span><%=@profile.lname %></p>
-  <BR>
-
-  <span class="post_t">A little about me: </span>
-  <p class="post"> <%= @profile.about %></p>
+  <%= form_for @profile, html: {multipart: true} do |f| %>
+    <%= render(partial: "profile_form", locals: {f: f}) %>
+  <% end %>
   <BR>
   <% if @current_user && @current_user.id == @profile.user_id %>
     <%= link_to("Edit", edit_profile_path, class: "btm_links") %>

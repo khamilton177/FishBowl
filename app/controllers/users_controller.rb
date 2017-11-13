@@ -59,6 +59,7 @@ class UsersController < ApplicationController
   end
 
   private
+
   def user_authenticated
     logger.debug ("*** Checking Authenticated User STATUS ***")
     unless session[:user_id]
